@@ -12,7 +12,9 @@ jobs:
     steps:
       - name: Trigger dotfiles update
         run: |
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github+json" \
                -H "Content-Type: application/json" \
+               -H "X-GitHub-Api-Version: 2022-11-28" \
                --data '{"event_type": "update_submodules"}' \
                https://api.github.com/repos/MirageTurtle/dotfiles/actions/workflows/136429576/dispatches
