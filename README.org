@@ -1,0 +1,5 @@
+* .emacs.d
+
+Here is MirageTurtle's personal vanilla Emacs configuration. I know there are many redundant and useless files/code, and I will continue to optimize them
+
+You can find more MirageTurtle's personal dotfiles at [[https://github.com/MirageTurtle/dotfiles][MirageTurtle/dotfiles]].
