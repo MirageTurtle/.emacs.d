@@ -1,0 +1,18 @@
+name: Notify Dotfiles
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-dotfiles:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger dotfiles update
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Content-Type: application/json" \
+               --data '{"event_type": "update_submodules"}' \
+               https://api.github.com/repos/MirageTurtle/dotfiles/actions/workflows/136429576/dispatches
