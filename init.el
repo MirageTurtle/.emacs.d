@@ -262,6 +262,7 @@
 (require 'init-ivy)
 (require 'init-calendar)
 (require 'init-llm)
+(require 'init-meow)
 
 (require 'init-git)
 (require 'init-theme)
