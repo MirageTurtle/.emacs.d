@@ -33,7 +33,7 @@
   ;; (setq lsp-bridge-enable-debug t)
   (setq lsp-bridge-python-command (expand-file-name "~/Documents/venv/lsp-bridge/bin/python3"))
   ;; (setq acm-enable-copilot t)
-  (setq acm-enable-codeium t)
+  (setq acm-enable-codeium nil)
   (setq lsp-bridge-default-mode-hooks '(copilot-mode))
   (setq lsp-bridge-popup-documentation t)
   (setq lsp-bridge-enable-diagnostics t))
