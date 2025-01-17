@@ -11,6 +11,7 @@
 ;; debug
 (use-package dape
   ;; require jsonrpc >= 1.0.24, I use 1.0.25
+  :ensure t
   :config
   (setq dape-buffer-window-arrangement 'right))
 
