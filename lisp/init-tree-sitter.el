@@ -2,6 +2,15 @@
 ;; This elisp file is for setting up tree-sitter,
 ;; instead of using the Emacs 29 treesit.
 (use-package tree-sitter
+  :init
+  (setq treesit-language-source-alist
+	'((elisp      . ("https://github.com/Wilfred/tree-sitter-elisp"))
+	  (rust       . ("https://github.com/tree-sitter/tree-sitter-rust"))
+	  (toml       . ("https://github.com/tree-sitter/tree-sitter-toml"))
+	  (go         . ("https://github.com/tree-sitter/tree-sitter-go"))
+	  (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod"))
+	  (python     . ("https://github.com/tree-sitter/tree-sitter-python"))
+	  (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))))
   :ensure t
   :hook
   (tree-sitter-after-on-hook . tree-sitter-hl-mode)

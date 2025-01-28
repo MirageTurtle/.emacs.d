@@ -2,7 +2,7 @@
 
 (use-package go-ts-mode
   :hook
-  (go-ts-mode . lsp-deferred)
+  ;; (go-ts-mode . lsp-deferred)
   (go-ts-mode . go-format-on-save-mode)
   :init
   ;;; if go/gomod is not in treesit-language-source-alist, add it

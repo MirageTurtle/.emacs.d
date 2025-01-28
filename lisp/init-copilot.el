@@ -12,6 +12,7 @@
   :hook (prog-mode . copilot-mode)
   :config
   (setq copilot-indent-offset-warning-disable t)
+  (setq copilot-network-proxy '(:host "127.0.0.1" :port 7890))
   :bind (:map copilot-completion-map
               ;; ("<tab>" . 'copilot-accept-completion)
               ;; ("TAB" . 'copilot-accept-completion)
