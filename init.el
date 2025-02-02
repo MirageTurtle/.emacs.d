@@ -84,19 +84,6 @@
 ;; (package-initialize)
 ;; (package-refresh-contents)
 
-;; proxy
-(defun clash()
-  "Use clash as proxy."
-  (interactive)
-  (setq url-proxy-services '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-			     ("http" . "127.0.0.1:7890")
-			     ("https" . "127.0.0.1:7890"))))
-(defun noproxy()
-  "No proxy."
-  (interactive)
-  (setq url-proxy-services nil))
-(clash)
-
 ;; straight
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -138,6 +125,7 @@
 
 
 (require 'init-env)
+(require 'init-net)
 
 (require 'init-utils)
 (require 'init-efficiency)
