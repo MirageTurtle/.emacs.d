@@ -40,7 +40,11 @@
 (setq org-log-done 'note)
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
+
+;; personal key binding
 (global-set-key (kbd "C-c c") 'org-capture)
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-'") nil))
 
 ;; pretty leading stars of headings
 (use-package org-superstar
