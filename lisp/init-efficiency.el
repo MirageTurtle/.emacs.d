@@ -174,10 +174,10 @@ WIN-ID : Window index."
 (use-package avy
   :ensure t
   :bind
-  ("C-:" . avy-goto-char)
+  ;; I remove `avy-goto-char' because I can use `meow-find' to replace it.
+  ;; And I use `avy-goto-line' more, so I bind it to `C-;'.
   ("C-'" . avy-goto-char-timer)
-  ("M-g f" . avy-goto-line)
-  ("M-g w" . avy-goto-word-1))
+  ("C-;" . avy-goto-line))
 
 ;; marginalia
 (use-package marginalia
