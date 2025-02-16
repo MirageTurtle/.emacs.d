@@ -1,9 +1,11 @@
 ;;; init-rust.el --- Rust configuration
 
-(let ((rustup-bin "/opt/homebrew/opt/rustup/bin"))
-  (when (file-exists-p rustup-bin)
-    (setenv "PATH" (concat rustup-bin ":" (getenv "PATH")))
-    (add-to-list 'exec-path rustup-bin)))
+;; (let ((rustup-bin "/opt/homebrew/opt/rustup/bin"))
+;;   (when (file-exists-p rustup-bin)
+;;     (setenv "PATH" (concat rustup-bin ":" (getenv "PATH")))
+;;     (add-to-list 'exec-path rustup-bin)))
+
+(require 'init-env)
 
 (use-package rust-mode
   :ensure t

@@ -2,11 +2,17 @@
 ;;; Commentary:
 ;;; Need to install [[GhostText][https://ghosttext.fregante.com/welcome]] in the browser end.
 
+;;; Code:
+
 (use-package atomic-chrome
   :ensure t
   :config
-  (atomic-chrome-start-server)
+  ;; (atomic-chrome-start-server)
   (setq atomic-chrome-buffer-open-style 'full)
   (setq atomic-chrome-url-major-mode-alist
 	'(("overleaf\\.com" . latex-mode)))
   )
+
+(provide 'init-atomic-chrome)
+
+;;; init-atomic-chrome.el ends here

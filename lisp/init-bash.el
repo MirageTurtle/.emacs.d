@@ -1,4 +1,8 @@
-;; init-bash.el
+;;; init-bash.el --- Bash configuration -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+(require 'init-prog)
 
 (unless (assoc 'bash treesit-language-source-alist)
     (push '(bash . ("https://github.com/tree-sitter/tree-sitter-bash")) treesit-language-source-alist))
@@ -12,4 +16,4 @@
 
 (provide 'init-bash)
 
-;; init-bash.el ends here
+;;; init-bash.el ends here

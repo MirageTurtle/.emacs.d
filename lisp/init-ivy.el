@@ -1,4 +1,13 @@
-;;; init-ivy.el
+;;; init-ivy.el --- Ivy configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; ivy is a very powerful package written by abo-abo.
+;; It is a completion framework, especially for minibuffer completion.
+;; I find a Chinese ivy tutorial:
+;; https://emacs-china.org/t/ivy/12091
+;; There are many ivy functions I do not know, even now.
+
+;;; Code:
 
 (use-package counsel
   :ensure t)
@@ -21,11 +30,12 @@
    ("C-c v" . 'ivy-push-view)
    ("C-c s" . 'ivy-switch-view)
    ("C-c V" . 'ivy-pop-view)
-   ;; ("C-x C-@" . 'counsel-mark-ring)
    ("C-x SPC" . 'counsel-mark-ring)
    :map minibuffer-local-map
    ("C-r" . counsel-minibuffer-history)
-   ;; the ~ivy-immediate-done~ is binded to C-M-j
+   ;; ~ivy-immediate-done~ is defaultly binded to ~C-M-j~
+   ;; ~ivy-dispatching-done~ is defaultly binded to ~M-o~
+   ;; ~ivy-call~ is defaultly binded to ~C-M-m~
 ))
 
 (provide 'init-ivy)

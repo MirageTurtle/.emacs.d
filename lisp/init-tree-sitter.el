@@ -1,6 +1,11 @@
-;; init-tree-sitter.el -*- lexical-binding: t; -*-
+;;; init-tree-sitter.el -*- lexical-binding: t; -*-
+;;; Commentary:
+
 ;; This elisp file is for setting up tree-sitter,
 ;; instead of using the Emacs 29 treesit.
+
+;;; Code:
+
 (use-package tree-sitter
   :init
   (setq treesit-language-source-alist
@@ -32,11 +37,11 @@
   :ensure t
   :after tree-sitter)
 
-(use-package ts-fold
-  :ensure t
-  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
-  :config
-  (add-hook 'tree-sitter-after-on-hook #'ts-fold-mode))
+;; (use-package ts-fold
+;;   :ensure t
+;;   :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
+;;   :config
+;;   (add-hook 'tree-sitter-after-on-hook #'ts-fold-mode))
 
 (provide 'init-tree-sitter)
-;; init-tree-sitter.el ends here
+;;; init-tree-sitter.el ends here

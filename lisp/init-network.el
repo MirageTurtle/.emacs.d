@@ -46,6 +46,6 @@
   (setenv "http_proxy" nil)
   (setenv "https_proxy" nil))
 
-(provide 'init-net)
+(provide 'init-network)
 
 ;;; init-net.el ends here.

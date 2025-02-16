@@ -1,5 +1,14 @@
-;;; init-python.el
+;;; init-python.el --- Python -*- lexical-binding: t -*-
+;;; Commentary:
 
+;;; Log:
+
+;; 2025-02-16:
+;;   Remove black support
+
+;;; Code:
+
+;; virtual env
 (use-package pyvenv
   :ensure t
   :config
@@ -32,14 +41,17 @@
           (lambda ()
             (lsp-bridge-restart-process)))
 
+;; ein is a juptyer notebook client
 (use-package ein
   :ensure t)
 
 ;; for black, a formatter
-(use-package python-black
-  :demand t
-  :after python
-  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+;; I didn't use it, I think I should use it out of Emacs first.
+;; active alternative: `blacken'
+;; (use-package python-black
+;;   :demand t
+;;   :after python
+;;   :hook (python-mode . python-black-on-save-mode-enable-dwim))
 
 (provide 'init-python)
 

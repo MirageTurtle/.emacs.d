@@ -1,12 +1,31 @@
-;;; init-efficiency.el
+;;; init-efficiency.el --- Configuration for personal efficiency -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; Perhaps it is a bit messy.
+
+;;; Log:
+
+;; 2025-02-15:
+;;   remove hydra to an independent file;
+;;   change the setting of ace-window with hydra;
+;;   add yasnippet;
+
+;;; Code:
+
+(require 'init-hydra)
 
 (global-hl-line-mode 1) ;; highlight current line
 
+(global-set-key (kbd "M-n") 'scroll-up-command)
+(global-set-key (kbd "M-p") 'scroll-down-command)
+
+;; amx is an alternative to smex
 (use-package amx
   :ensure t
   :config
   (amx-mode 1))
 
+;; Move Where I Mean
 (use-package mwim
   ;; :straight t
   :ensure t
@@ -15,29 +34,22 @@
   ("C-e" . mwim-end-of-code-or-line))
 
 ;; customed split window function
-(defun split-window-right-new ()
+(defun mt/split-window-right ()
   (interactive)
   (split-window-right)
   (other-window 1)
   (call-interactively 'switch-to-buffer))
-(defun split-window-below-new ()
+(defun mt/split-window-below ()
   (interactive)
   (split-window-below)
   (other-window 1)
   (call-interactively 'switch-to-buffer))
-(global-set-key (kbd "C-x 2") 'split-window-below-new)
-(global-set-key (kbd "C-x 3") 'split-window-right-new)
-
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")  'windmove-down)
-
-;; hydra
-(use-package hydra
-  :ensure t)
+(global-set-key (kbd "C-x 2") 'mt/split-window-below)
+(global-set-key (kbd "C-x 3") 'mt/split-window-right)
 
 ;; multi-cursor
+;; https://emacs-china.org/t/meow/15679 says meow could replace multiple-cursor,
+;; so I may remove it in the future.
 (use-package multiple-cursors
   :ensure t
   :bind
@@ -46,12 +58,49 @@
   ("C-c C-<" . mc/mark-all-like-this))
 
 ;; ace-window
+;; ace-window is a very great package to switch windows.
 (use-package ace-window
   :ensure t
   :bind
   ("C-x o" . ace-window))
+;; https://github.com/abo-abo/oremacs/blob/a24a45f079a0eaa7f584bc32ce3b33a545f29ff7/keys.el#L256-L287
+(defhydra hydra-window (:color red
+                        :columns nil)
+  "window"
+  ("h" windmove-left nil)
+  ("j" windmove-down nil)
+  ("k" windmove-up nil)
+  ("l" windmove-right nil)
+  ("H" hydra-move-splitter-left nil)
+  ("J" hydra-move-splitter-down nil)
+  ("K" hydra-move-splitter-up nil)
+  ("L" hydra-move-splitter-right nil)
+  ("v" (lambda ()
+         (interactive)
+         (split-window-right)
+         (windmove-right))
+       "vert")
+  ("x" (lambda ()
+         (interactive)
+         (split-window-below)
+         (windmove-down))
+       "horz")
+  ("t" transpose-frame "'" :exit t)
+  ("o" delete-other-windows "one" :exit t)
+  ("a" ace-window "ace")
+  ("s" ace-swap-window "swap")
+  ("d" ace-delete-window "del")
+  ("i" ace-maximize-window "ace-one" :exit t)
+  ("b" ido-switch-buffer "buf")
+  ("m" headlong-bookmark-jump "bmk")
+  ("q" nil "cancel")
+  ("u" (progn (winner-undo) (setq this-command 'winner-undo)) "undo")
+  ("f" nil))
+(global-set-key (kbd "M-o") 'hydra-window/body)
 
 ;; awesome-tab
+;; TODO:
+;; 1. show ace-window number
 (use-package awesome-tab
   :straight (awesome-tab :type git :host github :repo "manateelazycat/awesome-tab")
   :ensure t
@@ -135,7 +184,12 @@ WIN-ID : Window index."
  :ensure t
  :init (marginalia-mode)
  :bind (:map minibuffer-local-map
-     ("M-A" . marginalia-cycle)))
+     ("M-a" . marginalia-cycle)))
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
 
 (provide 'init-efficiency)
 

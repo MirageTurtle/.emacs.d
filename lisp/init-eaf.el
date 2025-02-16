@@ -1,4 +1,11 @@
-;;; init-eaf.el
+;;; init-eaf.el --- Emacs Application Framework -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; Because it is too slow on my old laptop, and it is necessary for me till now,
+;; I am not using it. But I will keep it here.
+;; NOT REVISED.
+
+;;; Code:
 
 (defun mt/eaf-install-deps(app-dir)
   "Install deps from dependencies.json for eaf."

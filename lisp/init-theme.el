@@ -40,15 +40,19 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :init (doom-modeline-mode 1))
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
+;; awesome-tray is a very brilliant mode-line, but I now use meow input
+;; and I do not have ability to add a icon to show the status of meow,
+;; so I changed to doom-modeline.
+;; I keep the configuration here for (maybe future) reference.
 (use-package awesome-tray
   :straight (awesome-tray :type git :host github :repo "manateelazycat/awesome-tray")
-  :ensure t
+  ;; :ensure t
   :config
-  (awesome-tray-mode 1)
+  ;; (awesome-tray-mode 1)
   (setq awesome-tray-active-modules '("location" "file-path" "buffer-name" "mode-name" "git" "battery" "date"))
   (setq awesome-tray-buffer-name-buffer-changed t)
   (setq awesome-tray-date-format "%Y-%m-%d %H:%M %a")

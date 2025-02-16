@@ -1,4 +1,9 @@
 ;;; init-go.el --- Go configuration -*- lexical-binding: t; -*-
+;;; Commentary:
+
+;;; Code:
+
+(require 'init-prog)
 
 (use-package go-ts-mode
   :hook

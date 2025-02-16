@@ -10,9 +10,9 @@
     (when (display-graphic-p)
       (message "Setting up emoji font for frame %s" frame)
       (cond
-       ((eq system-type 'darwin)
+       (*is-a-mac*
 	(set-fontset-font t 'unicode (font-spec :family "Apple Color Emoji") nil 'prepend))
-       ((eq system-type 'gnu/linux)
+       (*is-a-linux*
 	(set-fontset-font t 'unicode (font-spec :family "Noto Color Emoji") nil 'prepend))))))
 
 ;; Add the hook for existing frames

@@ -1,6 +1,9 @@
-;; init-bib.el
+;;; init-bib.el -*- lexical-binding: t; -*-
+;;; Commentary:
 ;; https://www.bilibili.com/read/cv23440624/
+;; NOT REVISED 
 
+;;; Code:
 (eval-after-load 'org-roam
   '(progn
      (setq zot_bib '("~/Documents/jianguoyun-papers/Research.bib") ; Zotero .bib file exported by Better BibTeX
@@ -64,4 +67,4 @@
 
 (provide 'init-bib)
 
-;; init-bib.el ends here
+;;; init-bib.el ends here

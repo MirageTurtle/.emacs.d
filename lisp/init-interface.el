@@ -1,11 +1,9 @@
-;;; init-interface.el
-;;; including some font-/unicode-related
+;;; init-interface.el --- Interface settings -*- lexical-binding: t -*-
+;;; Commentary:
 
-;; (when (member "Symbola" (font-family-list))
-;;   (set-fontset-font "fontset-default" nil
-;;                     (font-spec :size 20 :name "Symbola")))
-;; (when (member "Symbola" (font-family-list))
-;;   (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+;; Including Fonts, Color showing, Miscellany.
+
+;;; Code:
 
 (use-package cnfonts
   :ensure t
@@ -27,30 +25,15 @@
  :ensure t
  :config
  (setq dashboard-banner-logo-title "Enjoy Hacking!")
- (setq dashboard-projects-backend 'projectile)
+ ;; (setq dashboard-projects-backend 'projectile) ; I have given up projectile.
  (setq dashboard-startup-banner 'logo)
  ;; (setq dashboard-startup-banner nil)
+ ;; I actually not good at using bookmarks and agenda, so I remove them temporarily.
  (setq dashboard-items '((recents  . 10)
-		  (bookmarks . 5)
-		  (agenda . 5)
-		  (projects . 5)))
+		  ;; (bookmarks . 5)
+		  ;; (agenda . 5)
+		  (projects . 10)))
  (dashboard-setup-startup-hook))
-
-;; good-scroll, but actually I do not feel the difference
-(use-package good-scroll
- :ensure t
- :if window-system
- :init (good-scroll-mode))
-
-;; (use-package highlight-indent-guides
-;;   :ensure t
-;;   :hook (prog-mode . highlight-indent-guides-mode)
-;;   :config
-;;   (setq highlight-indent-guides-method 'character)
-;;   (setq highlight-indent-guides-character ?\|)
-;;   (setq highlight-indent-guides-auto-enabled nil)
-;;   (setq highlight-indent-guides-responsive 'top)
-;;   (setq highlight-indent-guides-delay 0))
 
 (provide 'init-interface)
 

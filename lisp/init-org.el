@@ -1,9 +1,13 @@
-;;; init-org.el
-; Some references
-; https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
-; https://github.com/lujun9972/emacs-document/blob/master/org-mode/%E7%BE%8E%E5%8C%96%20Org%20mode.org
+;;; init-org.el --- Org mode configuration -*- lexical-binding: t -*-
 
-;; fonts
+;;; Commentary:
+;; Some references
+;; https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
+;; https://github.com/lujun9972/emacs-document/blob/master/org-mode/%E7%BE%8E%E5%8C%96%20Org%20mode.org
+
+;;; Code:
+
+;; char coding
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -12,12 +16,6 @@
 
 ;; org
 ;; basic
-;;; mac: ~/Documents/sshfs-client/org/
-;;; linux: ~/Documents/sshfs-docs-client/org/
-;; (if (eq system-type 'darwin)
-;;     (setq org-directory (file-truename "~/Documents/sshfs-client/org/"))
-;;   (if (eq system-type 'gnu/linux)
-;;       (setq org-directory (file-truename "~/Documents/sshfs-docs-client/org/"))))
 (setq org-directory (file-truename "~/Documents/repo/org/"))
 ;; (setq org-startup-indented t)
 ;; (setq org-startup-numerated t)
@@ -35,23 +33,28 @@
 ;; (setq org-fontify-done-headline t)
 (setq org-footnote-auto-adjust t)
 
+;; for my personal todo
+(setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
+;; (setq org-log-done 'time)
+(setq org-log-done 'note)
+
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(global-set-key (kbd "C-c c") 'org-capture)
+
 ;; pretty leading stars of headings
-(use-package org-bullets
+(use-package org-superstar
   :ensure t
   :after org
-  :custom
-  ;; (org-bullets-bullet-list '("◉" "☯" "○" "☯" "✸" "☯" "✿" "☯" "✜" "☯" "◆" "☯" "▶"))
-  (org-bullets-bullet-list '("◉" "○" "✸" "✿" "✜" "◆" "▶"))
-  ;; (org-ellipsis "⤵")
-  :hook (org-mode . org-bullets-mode))
-
-;; leading stars of table
-(font-lock-add-keywords 'org-mode
-                        '(("^ *\([-]\) "
-                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-(font-lock-add-keywords 'org-mode
-                        '(("^ *\([+]\) "
-                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "◦"))))))
+  :config
+  (setq org-superstar-leading-bullet " ")
+  (setq org-superstar-headline-bullets-list '("◉" "○" "⚬" "◈" "◇"))
+  (setq org-superstar-special-todo-items t) ;; Makes TODO header bullets into boxes
+  (setq org-superstar-todo-bullet-alist '(("TODO"  . 9744)
+                                          ("WAITING"  . 9744)
+					  ("DONE"  . 9745)
+					  ("CANCELLED"  . 9746)))
+  :hook (org-mode . org-superstar-mode))
 
 ; For org-roam
 (use-package org-roam
@@ -311,15 +314,6 @@ Refer to `org-agenda-prefix-format' for more information."
 	 (match-end 1)))))
   ;; Beautifying the org-agenda display ends
   )
-
-;; for my personal todo
-;; (setq org-todo-keywords
-;;       '((sequence "TODO" "DOING" "WAITING" "|" "DONE")))
-;; (setq org-log-done 'time)
-(setq org-log-done 'note)
-
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(global-set-key (kbd "C-c c") 'org-capture)
 
 (provide 'init-org)
 

@@ -1,4 +1,7 @@
-;;; init-git.el
+;;; init-git.el --- Git Configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;;; Code:
 
 (use-package magit
   :ensure t

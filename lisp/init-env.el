@@ -1,4 +1,4 @@
-;; init-env.el -*- lexical-binding: t; -*-
+;;; init-env.el -*- lexical-binding: t; -*-
 
 (require 'exec-path-from-shell) ;; if not using the ELPA package
 (use-package exec-path-from-shell
@@ -8,4 +8,4 @@
 
 (provide 'init-env)
 
-;; init-env.el ends here.
+;;; init-env.el ends here.

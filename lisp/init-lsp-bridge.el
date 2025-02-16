@@ -1,12 +1,11 @@
-;;; init-lsp-bridge.el
+;;; init-lsp-bridge.el --- lsp-bridge configuration -*- lexical-binding: t -*-
+;;; Commentary:
 
-(use-package yasnippet
-  :ensure t
-  :config
-  (yas-global-mode 1))
+;;; Code:
 
-(use-package markdown-mode
-  :ensure t)
+;; dependencies
+(require 'yasnippet)
+(require 'markdown-mode)
 
 (use-package lsp-bridge
   :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
@@ -39,7 +38,7 @@
   (setq lsp-bridge-enable-diagnostics t))
 
 ;; Some Issue
-;; https://github.com/manateelazycat/lsp-bridge/blob/master/README.md
+;; https://github.com/manateelazycat/lsp-bridge?tab=readme-ov-file#customize-language-server-configuration-file
 (defun enable-lsp-bridge()
   (when-let* ((project (project-current))
               (project-root (nth 2 project)))

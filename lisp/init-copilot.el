@@ -1,4 +1,9 @@
 ;;; init-copilot.el --- Copilot configuration -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; editorconfig and jsonrpc are required by copilot
+
+;;; Code:
 
 (use-package editorconfig
   :ensure t)

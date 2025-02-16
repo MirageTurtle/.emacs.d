@@ -3,7 +3,6 @@
 (defun gptel-api-key ()
   (read-file-contents "~/Documents/secrets/my_new_api_key"))
 
-
 (use-package gptel
   :custom
   (gptel-model 'gpt-4o-mini)
@@ -19,7 +18,7 @@
                    :key #'gptel-api-key
 		   :host "100.64.0.1:3002"
 		   :protocol "http"
-		   :models '(gpt-4o-mini deepseek-ai/DeepSeek-R1 deepseek-ai/DeepSeek-V3)
+		   :models '(gpt-4o-mini deepseek-ai/DeepSeek-R1 deepseek-ai/DeepSeek-V3 o3-mini)
 		   :endpoint "/v1/chat/completions"
 		   :stream t)))
 

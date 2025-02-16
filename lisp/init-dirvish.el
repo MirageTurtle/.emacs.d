@@ -1,4 +1,13 @@
 ;;; init-dirvish.el --- -*- lexical-binding: t -*-
+;;; Commentary:
+
+;; I am disable `dirvish' in `init.el'.
+;; Because I want to try to be familiar with `dired' first,
+;; and then I will to retry `dirvish', or maybe `yazi' with `eee.el'.
+
+;; NOT REVISED.
+
+;;; Code:
 
 (use-package dirvish
   :straight t
