@@ -20,7 +20,8 @@
 		   :protocol "http"
 		   :models '(gpt-4o-mini deepseek-ai/DeepSeek-R1 deepseek-ai/DeepSeek-V3 o3-mini)
 		   :endpoint "/v1/chat/completions"
-		   :stream t)))
+		   :stream t))
+  (setq gptel-default-mode 'org-mode))
 
 (use-package aider
   :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
