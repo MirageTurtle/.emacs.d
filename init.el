@@ -140,7 +140,6 @@
 
 (require 'init-atomic-chrome)
 
-(require 'init-workspace)
 (require 'init-lsp-bridge)
 (require 'init-copilot)
 (require 'init-tree-sitter)

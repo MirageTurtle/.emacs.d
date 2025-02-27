@@ -18,7 +18,7 @@
                    :key #'gptel-api-key
 		   :host "100.64.0.1:3002"
 		   :protocol "http"
-		   :models '(gpt-4o-mini deepseek-ai/DeepSeek-R1 deepseek-ai/DeepSeek-V3 o3-mini)
+		   :models '(gpt-4o-mini deepseek-ai/DeepSeek-R1 deepseek-ai/DeepSeek-V3 o3-mini claude-3.7-sonnet)
 		   :endpoint "/v1/chat/completions"
 		   :stream t))
   (setq gptel-default-mode 'org-mode))
