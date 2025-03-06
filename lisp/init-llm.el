@@ -5,7 +5,7 @@
 
 (use-package gptel
   :custom
-  (gptel-model 'gpt-4o-mini)
+  (gptel-model 'claude-3.7-sonnet)
   :config
   (defun read-file-contents (file-path)
     "Read the contents of FILE-PATH and return it as a string."
@@ -18,7 +18,36 @@
                    :key #'gptel-api-key
 		   :host "100.64.0.1:3002"
 		   :protocol "http"
-		   :models '(gpt-4o-mini deepseek-ai/DeepSeek-R1 deepseek-ai/DeepSeek-V3 o3-mini claude-3.7-sonnet)
+		   :models '(
+			     ;; OpenAI
+			     gpt-4o-mini
+			     o1-mini
+			     o3-mini
+			     o3-mini-high
+			     gpt-4o-mini-联网
+			     o1-mini-联网
+			     o3-mini-联网
+			     o3-mini-high-联网
+			     ;; DeepSeek
+			     ;; deepseek-ai/DeepSeek-R1
+			     ;; deepseek-ai/DeepSeek-V3
+			     deepseek-chat
+			     deepseek-reasoner
+			     deepseek-chat-联网
+			     deepseek-reasoner-联网
+			     ;; Anthropic AI
+			     claude-3.5-sonnet
+			     claude-3.7-sonnet
+			     claude-3.7-sonnet-thinking
+			     claude-3.5-sonnet-联网
+			     claude-3.7-sonnet-联网
+			     claude-3.7-sonnet-thinking-联网
+			     ;; Google
+			     gemini-2.0-flash
+			     gemini-2.0-pro
+			     gemini-2.0-flash-联网
+			     gemini-2.0-pro-联网
+			     )
 		   :endpoint "/v1/chat/completions"
 		   :stream t))
   (setq gptel-default-mode 'org-mode))

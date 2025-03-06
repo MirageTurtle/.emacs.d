@@ -46,6 +46,8 @@
   (setenv "http_proxy" nil)
   (setenv "https_proxy" nil))
 
+(mt/set-emacs-proxy (cdr (assoc "clash" mt/proxy-alist)))
+
 (provide 'init-network)
 
 ;;; init-net.el ends here.

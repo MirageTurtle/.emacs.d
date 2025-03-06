@@ -70,6 +70,9 @@
   ())
 
 
+(require 'init-env)
+(require 'init-network)
+
 ;; (setq package-install-upgrade-built-in t)
 
 ;; package
@@ -122,9 +125,6 @@
 (eval-when-compile
   (require 'use-package))
 
-
-(require 'init-env)
-(require 'init-network)
 
 (require 'init-utils)
 (require 'init-efficiency)
