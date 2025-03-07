@@ -29,8 +29,8 @@
 			     o3-mini-联网
 			     o3-mini-high-联网
 			     ;; DeepSeek
-			     ;; deepseek-ai/DeepSeek-R1
-			     ;; deepseek-ai/DeepSeek-V3
+			     deepseek-ai/DeepSeek-R1
+			     deepseek-ai/DeepSeek-V3
 			     deepseek-chat
 			     deepseek-reasoner
 			     deepseek-chat-联网
@@ -47,6 +47,8 @@
 			     gemini-2.0-pro
 			     gemini-2.0-flash-联网
 			     gemini-2.0-pro-联网
+			     ;; Qwen
+			     Qwen/QwQ-32B
 			     )
 		   :endpoint "/v1/chat/completions"
 		   :stream t))

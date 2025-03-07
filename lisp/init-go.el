@@ -5,19 +5,16 @@
 
 (require 'init-prog)
 
-(use-package go-ts-mode
+(use-package go-mode
+  :ensure t
   :hook
-  ;; (go-ts-mode . lsp-deferred)
-  (go-ts-mode . go-format-on-save-mode)
-  :init
-  ;;; if go/gomod is not in treesit-language-source-alist, add it
-  ;; (dolist (lang '(go gomod))
-  ;;   (unless (assoc lang treesit-language-source-alist)
-  ;;     (push `(,lang . ,(treesit-get-language lang)) treesit-language-source-alist)))
+  (go-mode . lsp-deferred)
+  (go-mode . go-format-on-save-mode)
   :config
   (reformatter-define go-format
     :program "gofmt"
-    :args '("-s")))
+    :args '("-s"))
+  (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode)))
 
 (provide 'init-go)
 
