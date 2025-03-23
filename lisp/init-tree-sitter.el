@@ -37,11 +37,11 @@
   :ensure t
   :after tree-sitter)
 
-;; (use-package ts-fold
-;;   :ensure t
-;;   :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
-;;   :config
-;;   (add-hook 'tree-sitter-after-on-hook #'ts-fold-mode))
+(use-package ts-fold
+  :ensure t
+  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
+  :config
+  (add-hook 'tree-sitter-after-on-hook #'ts-fold-mode))
 
 (provide 'init-tree-sitter)
 ;;; init-tree-sitter.el ends here
