@@ -15,7 +15,7 @@
   (define-key cnfonts-mode-map (kbd "C--") #'cnfonts-decrease-fontsize)
   (define-key cnfonts-mode-map (kbd "C-=") #'cnfonts-increase-fontsize)
   (setq cnfonts-profiles '("Program" "Document"))
-  (setq cnfonts-personal-fontnames '(("JetBrains Mono" "LXGW WenKai Mono") ("LXGW WenKai Mono"))))
+  (setq cnfonts-personal-fontnames '(("JetBrains Mono" "LXGW WenKai Mono" "Maple Mono") ("LXGW WenKai Mono"))))
 
 (use-package rainbow-delimiters
   :ensure t
