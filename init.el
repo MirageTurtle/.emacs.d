@@ -136,7 +136,7 @@
 (require 'init-git)
 (require 'init-theme)
 (require 'init-interface)
-;; (require 'init-dirvish)
+(require 'init-dirvish)
 
 (require 'init-atomic-chrome)
 

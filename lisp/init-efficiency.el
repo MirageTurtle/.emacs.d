@@ -12,6 +12,8 @@
 
 ;;; Code:
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 (require 'init-hydra)
 
 (global-hl-line-mode 1) ;; highlight current line

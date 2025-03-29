@@ -4,7 +4,7 @@
 ;; some variables
 (setq mt/no_proxy_regex "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
 ;; Define the alist for potential proxy names
-(setq mt/proxy-alist '(("clash" . "http://127.0.0.1:7890")))
+(setq mt/proxy-alist '(("clash" . "http://127.0.0.1:7897")))
 
 ;; some functions for proxy
 ;;; clash

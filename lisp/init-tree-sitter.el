@@ -15,7 +15,8 @@
 	  (go         . ("https://github.com/tree-sitter/tree-sitter-go"))
 	  (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod"))
 	  (python     . ("https://github.com/tree-sitter/tree-sitter-python"))
-	  (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))))
+	  (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+	  (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"))))
   :ensure t
   :hook
   (tree-sitter-after-on-hook . tree-sitter-hl-mode)

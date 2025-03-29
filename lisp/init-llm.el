@@ -31,10 +31,10 @@
 			     ;; DeepSeek
 			     deepseek-ai/DeepSeek-R1
 			     deepseek-ai/DeepSeek-V3
-			     deepseek-chat
-			     deepseek-reasoner
-			     deepseek-chat-联网
-			     deepseek-reasoner-联网
+			     ;; deepseek-chat
+			     ;; deepseek-reasoner
+			     ;; deepseek-chat-联网
+			     ;; deepseek-reasoner-联网
 			     ;; Anthropic AI
 			     claude-3.5-sonnet
 			     claude-3.7-sonnet

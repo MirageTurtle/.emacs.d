@@ -12,15 +12,15 @@
             :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
             :build (:not compile))
   :ensure t
-  :init
-  (global-lsp-bridge-mode)
-  :hook
-  ((prog-mode . lsp-bridge-mode)
-   ((latex-mode LaTeX-mode) . lsp-bridge-mode)
-   (markdown-mode . lsp-bridge-mode))
+  ;; :init
+  ;; (global-lsp-bridge-mode)
+  ;; :hook
+  ;; ((prog-mode . lsp-bridge-mode)
+  ;;  ((latex-mode LaTeX-mode) . lsp-bridge-mode)
+  ;;  (markdown-mode . lsp-bridge-mode))
   :bind (:map lsp-bridge-mode
-	("M-s-j" . lsp-bridge-diagnostic-jump-next)
-	("M-s-k" . lsp-bridge-diagnostic-jump-prev)
+	;; ("M-s-j" . lsp-bridge-diagnostic-jump-next)
+	;; ("M-s-k" . lsp-bridge-diagnostic-jump-prev)
 	("M-s-n" . lsp-bridge-popup-documentation-scroll-up)
 	("M-s-p" . lsp-bridge-popup-documentation-scroll-down))
   :config
