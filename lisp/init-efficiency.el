@@ -181,12 +181,6 @@ WIN-ID : Window index."
   ("C-'" . avy-goto-char-timer)
   ("C-;" . avy-goto-line))
 
-;; marginalia
-(use-package marginalia
- :ensure t
- :init (marginalia-mode)
- :bind (:map minibuffer-local-map
-     ("M-a" . marginalia-cycle)))
 
 (use-package yasnippet
   :ensure t

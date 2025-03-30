@@ -11,7 +11,7 @@
         company-echo-delay (if (display-graphic-p) nil 0)
         company-minimum-prefix-length 1
 	company-show-numbers t
-        company-icon-margin 3
+        ;; company-icon-margin 3
         company-require-match nil
         company-dabbrev-ignore-case nil
         company-dabbrev-downcase nil
@@ -20,7 +20,7 @@
         company-backends '((company-capf :with company-yasnippet)
                            (company-dabbrev-code company-keywords company-files)
                            company-dabbrev)
-        company-format-margin-function nil
+        ;; company-format-margin-function nil
         company-transformers '(company-sort-prefer-same-case-prefix
                                company-sort-by-occurrence
                                company-sort-by-backend-importance))
@@ -30,7 +30,19 @@
 (use-package company-box
   :straight t
   :if (display-graphic-p)
-  :hook (company-mode . company-box-mode))
+  :hook (company-mode . company-box-mode)
+  :config
+  (setq company-box-icons-alist 'company-box-icons-all-the-icons))
+
+(use-package all-the-icons
+  :straight t
+  :if (display-graphic-p))
+
+(use-package all-the-icons-completion
+  :straight t
+  :requires all-the-icons
+  :if (display-graphic-p)
+  :hook (after-init . all-the-icons-completion-mode))
 
 (use-package dabbrev
   :config
