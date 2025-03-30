@@ -35,7 +35,8 @@
 (use-package eglot
   :hook
   ((json-mode jsonc-mode) . eglot-ensure)
-  ((js2-mode typescript-mode) . eglot-ensure))
+  ((js2-mode typescript-mode) . eglot-ensure)
+  ((python-mode) . eglot-ensure))
 
 ;; flymake
 (use-package flymake
