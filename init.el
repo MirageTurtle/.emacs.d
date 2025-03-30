@@ -128,9 +128,9 @@
 
 (require 'init-utils)
 (require 'init-efficiency)
+(require 'init-completion)
 (require 'init-emoji)
 (require 'init-ivy)
-(require 'init-llm)
 (require 'init-meow)
 
 (require 'init-git)
@@ -138,6 +138,7 @@
 (require 'init-interface)
 (require 'init-dirvish)
 
+(require 'init-llm)
 (require 'init-atomic-chrome)
 
 (require 'init-lsp-bridge)
