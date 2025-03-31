@@ -46,6 +46,17 @@
     (add-to-list 'auto-mode-alist (cons ext mode)))
     (message "Set default mode for %s to %s" ext mode))
 
+(defun mt/set-default-mode (ext mode)
+  "Set the default mode for file with extension EXT to MODE."
+  (interactive "sExtension: \nSMode: ")
+  (setq ext (concat "\\." ext "\\'"))
+  (let ((mode-function (if (stringp mode)
+                         (intern mode)
+                         mode)))
+    (if (assoc ext auto-mode-alist)
+        (setcdr (assoc ext auto-mode-alist) mode-function)
+      (add-to-list 'auto-mode-alist (cons ext mode-function)))))
+
 (defvar mt/default-mode-alist
   (list
    '("\\.js\\'" . js2-mode)
@@ -54,7 +65,7 @@
    '("\\.tsx\\'" . typescript-mode)
    '("\\.json\\'" . json-mode)
    '("\\.jsonc\\'" . jsonc-mode)
-   '("\\.html\\'" . web-mode)
+   '("\\.html\\'" . html-mode)
    '("\\.css\\'" . css-mode)
    '("\\.scss\\'" . scss-mode)
    '("\\.sass\\'" . sass-mode)
