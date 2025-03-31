@@ -5,6 +5,8 @@
 
 ;; 2025-02-16:
 ;;   Remove black support
+;; 2025-03-31:
+;;   Add blacken for black
 
 ;;; Code:
 
@@ -48,13 +50,11 @@
 (use-package ein
   :ensure t)
 
-;; for black, a formatter
-;; I didn't use it, I think I should use it out of Emacs first.
-;; active alternative: `blacken'
-;; (use-package python-black
-;;   :demand t
-;;   :after python
-;;   :hook (python-mode . python-black-on-save-mode-enable-dwim))
+;; for black
+(use-package blacken
+  :ensure t
+  :config
+  (add-hook 'python-mode-hook 'blacken-mode))
 
 (provide 'init-python)
 
