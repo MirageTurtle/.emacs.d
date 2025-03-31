@@ -16,14 +16,6 @@
 (use-package reformatter
   :ensure t)
 
-
-(use-package ts-fold
-  :ensure t
-  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
-  :hook (prog-mode . ts-fold-mode)
-  :bind
-  ("s-<return>" . ts-fold-toggle))
-
 ;; debug
 (use-package dape
   ;; require jsonrpc >= 1.0.24, I use 1.0.25

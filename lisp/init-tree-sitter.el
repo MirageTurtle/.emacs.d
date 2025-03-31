@@ -39,10 +39,12 @@
   :after tree-sitter)
 
 (use-package ts-fold
-  :ensure t
-  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
-  :config
-  (add-hook 'tree-sitter-after-on-hook #'ts-fold-mode))
+  :straight (ts-fold :type git :host github :repo "MirageTurtle/ts-fold")
+  :hook
+  (prog-mode . ts-fold-mode)
+  (tree-sitter-after-on . ts-fold-mode)
+  :bind
+  ("s-<return>" . ts-fold-toggle))
 
 (provide 'init-tree-sitter)
 ;;; init-tree-sitter.el ends here
