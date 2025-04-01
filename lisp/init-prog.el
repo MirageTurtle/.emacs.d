@@ -89,6 +89,12 @@
 	(mode (cdr pair)))
     (mt/set-default-mode-if-not-exist ext mode)))
 
+;; formatter package: apheleia
+(use-package apheleia
+  :straight t
+  :config
+  (apheleia-global-mode +1))
+
 (provide 'init-prog)
 
 ;;; init-prog.el ends here
