@@ -44,18 +44,23 @@
   "Set the default mode for file with extension EXT to MODE if it is not in auto-mode-alist."
   (unless (assoc ext auto-mode-alist)
     (add-to-list 'auto-mode-alist (cons ext mode)))
-    (message "Set default mode for %s to %s" ext mode))
+  (message "Set default mode for %s to %s" ext mode))
+
+
+(defun mt/set-default-mode-even-if-exist (ext mode)
+  "Set the default mode for file with extension EXT to MODE even if it is in auto-mode-alist."
+  (let ((mode-function (if (stringp mode)
+			   (intern mode)
+			 mode)))
+    (if (assoc ext auto-mode-alist)
+	(setcdr (assoc ext auto-mode-alist) mode-function)
+      (add-to-list 'auto-mode-alist (cons ext mode-function)))))
 
 (defun mt/set-default-mode (ext mode)
   "Set the default mode for file with extension EXT to MODE."
   (interactive "sExtension: \nSMode: ")
   (setq ext (concat "\\." ext "\\'"))
-  (let ((mode-function (if (stringp mode)
-                         (intern mode)
-                         mode)))
-    (if (assoc ext auto-mode-alist)
-        (setcdr (assoc ext auto-mode-alist) mode-function)
-      (add-to-list 'auto-mode-alist (cons ext mode-function)))))
+  (mt/set-default-mode-even-if-exist ext mode))
 
 (defvar mt/default-mode-alist
   (list

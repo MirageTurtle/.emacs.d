@@ -1,18 +1,22 @@
 ;;; init-bash.el --- Bash configuration -*- lexical-binding: t -*-
 ;;; Commentary:
+
+;;; Log:
+;; 2025-04-03:
+;;   * remove `bash-format-on-save-mode' because of apheleia
+;;   * use `bash-ts-mode' instead of `sh-mode'
+
 ;;; Code:
 
 (require 'init-prog)
 
 (unless (assoc 'bash treesit-language-source-alist)
-    (push '(bash . ("https://github.com/tree-sitter/tree-sitter-bash")) treesit-language-source-alist))
+  (push '(bash . ("https://github.com/tree-sitter/tree-sitter-bash")) treesit-language-source-alist))
 
-(reformatter-define bash-format
-    :program "shfmt"
-    :args '("-i" "4" "-ci" "-sr"))
-
-(add-hook 'bash-ts-mode 'bash-format-on-save-mode)
-(add-hook 'sh-mode 'bash-format-on-save-mode)
+;; set shell-script-mode to use bash-ts-mode
+(setq major-mode-remap-alist
+      '((sh-mode . bash-ts-mode)
+	(shell-script-mode . bash-ts-mode)))
 
 (provide 'init-bash)
 

@@ -36,7 +36,7 @@
    ;; ~ivy-immediate-done~ is defaultly binded to ~C-M-j~
    ;; ~ivy-dispatching-done~ is defaultly binded to ~M-o~
    ;; ~ivy-call~ is defaultly binded to ~C-M-m~
-))
+   ))
 
 (provide 'init-ivy)
 
