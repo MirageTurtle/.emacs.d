@@ -8,7 +8,6 @@
 (use-package go-mode
   :ensure t
   :hook
-  (go-mode . lsp-deferred)
   (go-mode . go-format-on-save-mode)
   :config
   (reformatter-define go-format
