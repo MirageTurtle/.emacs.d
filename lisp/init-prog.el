@@ -30,6 +30,18 @@
   ((js2-mode typescript-mode) . eglot-ensure)
   ((python-mode) . eglot-ensure))
 
+;; eldoc-box
+(use-package eldoc-box
+  :straight (:type git :host github :repo "casouri/eldoc-box")
+  :ensure t
+  :hook
+  (eglot-managed-mode . eldoc-box-hover-at-point-mode)
+  :config
+  (setq eldoc-box-show-with-cursor t)
+  (setq eldoc-box-show-with-mouse t)
+  (setq eldoc-box-border-color "#4f5b93")
+  (setq eldoc-box-minibuffer t))
+
 ;; flymake
 (use-package flymake
   :bind
