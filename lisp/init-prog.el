@@ -25,10 +25,14 @@
 
 ;; eglot
 (use-package eglot
+  :ensure t
   :hook
   ((json-mode jsonc-mode) . eglot-ensure)
   ((js2-mode typescript-mode) . eglot-ensure)
-  ((python-mode) . eglot-ensure))
+  ((python-mode) . eglot-ensure)
+  ((sh-mode bash-ts-mode) . eglot-ensure)
+  ((rust-mode) . eglot-ensure)
+  ((go-mode) . eglot-ensure))
 
 ;; eldoc-box
 (use-package eldoc-box
