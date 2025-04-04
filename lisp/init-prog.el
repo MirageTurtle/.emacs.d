@@ -4,7 +4,12 @@
 ;;; Log:
 
 ;; 2025-02-16:
-;;   remove ts-fold, cause I try to use hs-minor-mode instead
+;;   * remove ts-fold, cause I try to use hs-minor-mode instead
+;; 2025-04-04:
+;;   * add `eldoc-box'
+;;   * use `eldoc-box-hover-mode' instead of `eldoc-box-hover-at-point-mode'
+;;     since I think the right part of the screen is blank at most time,
+;;     and showing the doc at the right top could help me to move my neck :)
 
 ;; Programming related configurations
 
@@ -39,7 +44,7 @@
   :straight (:type git :host github :repo "casouri/eldoc-box")
   :ensure t
   :hook
-  (eglot-managed-mode . eldoc-box-hover-at-point-mode)
+  (eglot-managed-mode . eldoc-box-hover-mode)
   :config
   (setq eldoc-box-show-with-cursor t)
   (setq eldoc-box-show-with-mouse t)
