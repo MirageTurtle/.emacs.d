@@ -4,9 +4,57 @@
 ;; 2025-03-31:
 ;;   + format code
 ;;   + add wrap-keymap for insert quote/bracket/brace/parenthesis pair in normal state
+;; 2025-04-06:
+;;   + add `emt' and `meow-mark-word-or-chinese'
 
 ;;; Code:
 
+;; emt: Emacs MacOS Tokenizer
+(use-package emt
+  :straight (:host github :repo "roife/emt"
+                   :files ("*.el" "module/*" "module"))
+  :hook (after-init . emt-mode))
+
+;; https://github.com/LuciusChen/.emacs.d/blob/61241953d3cf1e5b4d1ca0559717d8a55b12543c/lib/lib-meow.el#L5-L41
+(defun meow-mark-word-or-chinese (n)
+  "Mark current word under cursor, handling both English and Chinese text.
+
+This function uses EMT's segmentation for Chinese and default behavior for English.
+The selection will be expandable with `meow-next-word' and `meow-back-word'.
+The selected word will be added to `regexp-search-ring' and highlighted.
+
+Use a negative argument to create a backward selection."
+  (interactive "p")
+  ;; Ensure that EMT is loaded
+  (emt-ensure)
+  (let* ((direction (if (< n 0) 'backward 'forward))
+         (bounds (emt--get-bounds-at-point
+                  (emt--move-by-word-decide-bounds-direction direction)))
+         (beg (car bounds))
+         (end (cdr bounds)))
+    (if (eq beg end)
+        ;; Use default Meow for English words
+        (meow-mark-thing meow-word-thing 'word (< n 0) "\\<%s\\>")
+      ;; Use EMT segmentation for Chinese
+      (let* ((text (buffer-substring-no-properties beg end))
+             (segments (append (emt-split text) nil))
+             (pos (- (point) beg))
+             (segment-bounds (car segments)))
+        ;; Find the correct segment
+        (dolist (bound segments)
+          (when (and (>= pos (car bound)) (< pos (cdr bound)))
+            (setq segment-bounds bound)))
+        (when segment-bounds
+          (let* ((seg-beg (+ beg (car segment-bounds)))
+                 (seg-end (+ beg (cdr segment-bounds)))
+                 (segment-text (buffer-substring-no-properties seg-beg seg-end))
+                 (regexp (regexp-quote segment-text)))
+            (let ((selection (meow--make-selection (cons 'expand 'word) seg-beg seg-end)))
+              (meow--select selection (< n 0))
+              (meow--push-search regexp)
+              (meow--highlight-regexp-in-buffer regexp))))))))
+
+;; meow
 (use-package meow
   :ensure t
   :demand t
@@ -87,7 +135,10 @@
      '("u" . meow-undo)
      '("U" . meow-undo-in-selection)
      '("v" . meow-visit)
-     '("w" . meow-mark-word)
+     ;; '("w" . meow-mark-word)
+     (if *is-a-mac*
+	 '("w" . meow-mark-word-or-chinese)
+       '("w" . meow-mark-word))
      '("W" . meow-mark-symbol)
      '("x" . meow-line)
      '("X" . meow-goto-line)
