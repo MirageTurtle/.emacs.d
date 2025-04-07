@@ -157,6 +157,8 @@
 
 (require 'init-bib)
 
+(require 'init-telega)
+
 ;; (require 'init-eaf)
 
 (provide 'init)
