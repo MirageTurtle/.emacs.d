@@ -7,6 +7,9 @@
 ;;   Remove black support
 ;; 2025-03-31:
 ;;   Add blacken for black
+;; 2025-04-07:
+;;   * Remove blacken support, because I use apheleia now.
+;;   * add `python-mode' into `pyvenv-post-hook'.
 
 ;;; Code:
 
@@ -44,17 +47,18 @@
 ;;             (lsp-bridge-restart-process)))
 (add-hook 'pyvenv-post-activate-hooks
 	  (lambda ()
-	    (eglot-ensure)))
+	    (eglot-ensure)
+	    (python-mode)))
 
 ;; ein is a juptyer notebook client
 (use-package ein
   :ensure t)
 
-;; for black
-(use-package blacken
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook 'blacken-mode))
+;; ;; for black
+;; (use-package blacken
+;;   :ensure t
+;;   :config
+;;   (add-hook 'python-mode-hook 'blacken-mode))
 
 (provide 'init-python)
 
