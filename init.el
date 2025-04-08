@@ -141,9 +141,10 @@
 (require 'init-llm)
 (require 'init-atomic-chrome)
 
-(require 'init-lsp-bridge)
+;; (require 'init-lsp-bridge)
 (require 'init-copilot)
 (require 'init-tree-sitter)
+(require 'init-emigo)
 
 (require 'init-prog)
 (require 'init-python)

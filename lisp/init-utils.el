@@ -47,6 +47,11 @@ DOCSTRING and BODY are as in `defun'.
          (dolist (target (cdr targets))
            (advice-add target (car targets) #',symbol))))))
 
+(defun mt/read-file-content (filepath)
+  (with-temp-buffer
+    (insert-file-contents filepath)
+    (string-trim (buffer-string))))
+
 (provide 'init-utils)
 
 ;;; init-utils.el ends here.
