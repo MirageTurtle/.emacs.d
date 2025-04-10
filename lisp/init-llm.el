@@ -1,22 +1,22 @@
 ;; init-llm.el -*- lexical-binding: t; -*-
 
 (defun gptel-api-key ()
-  (read-file-contents "~/Documents/secrets/my_new_api_key"))
+  (mt/read-file-contents "~/Documents/secrets/my_new_api_key"))
+
+(defun gptel-uni-api-key()
+  (mt/read-file-contents "~/Documents/secrets/my_uni_api_key"))
 
 (use-package gptel
   :custom
   (gptel-model 'claude-3.7-sonnet)
   :config
-  (defun read-file-contents (file-path)
-    "Read the contents of FILE-PATH and return it as a string."
-    (with-temp-buffer
-      (insert-file-contents file-path)
-      (buffer-string)))
   (setq
    gptel-backend (gptel-make-openai "Personal"
                    :stream t
-                   :key #'gptel-api-key
-		   :host "100.64.0.1:3002"
+                   ;; :key #'gptel-api-key
+		   ;; :host "100.64.0.1:3002"
+                   :key #'gptel-uni-api-key
+		   :host "100.64.0.1:3003"
 		   :protocol "http"
 		   :models '(
 			     ;; OpenAI

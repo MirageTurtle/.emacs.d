@@ -48,6 +48,7 @@ DOCSTRING and BODY are as in `defun'.
            (advice-add target (car targets) #',symbol))))))
 
 (defun mt/read-file-content (filepath)
+  "Read the content of FILEPATH and return it as a string."
   (with-temp-buffer
     (insert-file-contents filepath)
     (string-trim (buffer-string))))
