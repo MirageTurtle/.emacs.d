@@ -38,6 +38,13 @@
    ;; ~ivy-call~ is defaultly binded to ~C-M-m~
    ))
 
+(use-package ivy-avy
+  :ensure t
+  :after (ivy avy)
+  :bind
+  (:map ivy-minibuffer-map
+	("C-;" . ivy-avy)))
+
 (provide 'init-ivy)
 
 ;;; init-ivy.el ends here.
