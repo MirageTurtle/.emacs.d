@@ -132,6 +132,7 @@
 (require 'init-emoji)
 (require 'init-ivy)
 (require 'init-meow)
+(require 'init-search)
 
 (require 'init-git)
 (require 'init-theme)
