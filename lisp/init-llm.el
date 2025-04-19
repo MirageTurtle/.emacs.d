@@ -54,14 +54,14 @@
 		   :stream t))
   (setq gptel-default-mode 'org-mode))
 
-(use-package aider
-  :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
-  :config
-  (setq aider-args '("--no-auto-commits"
-		     "--model"
-		     "openai/gpt-4o-mini"))
-  (setenv "OPENAI_API_BASE" "http://100.64.0.1:3002/v1")
-  (setenv "OPENAI_API_KEY" (gptel-api-key)))
+;; (use-package aider
+;;   :straight (:host github :repo "tninja/aider.el" :files ("aider.el"))
+;;   :config
+;;   (setq aider-args '("--no-auto-commits"
+;; 		     "--model"
+;; 		     "openai/gpt-4o-mini"))
+;;   (setenv "OPENAI_API_BASE" "http://100.64.0.1:3002/v1")
+;;   (setenv "OPENAI_API_KEY" (gptel-api-key)))
 
 
 (provide 'init-llm)

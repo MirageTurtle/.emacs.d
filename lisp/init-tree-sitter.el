@@ -7,6 +7,7 @@
 ;;; Code:
 
 (use-package tree-sitter
+  :ensure t
   :init
   (setq treesit-language-source-alist
 	'((elisp      . ("https://github.com/Wilfred/tree-sitter-elisp"))

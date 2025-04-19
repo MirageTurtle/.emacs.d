@@ -57,7 +57,7 @@ Use a negative argument to create a backward selection."
 ;; meow
 (use-package meow
   :ensure t
-  :demand t
+  ;; :demand t
   :config
   (defun meow-setup ()
     (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
