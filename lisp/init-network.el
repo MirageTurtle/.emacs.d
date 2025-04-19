@@ -87,7 +87,7 @@
   (setenv "http_proxy" nil)
   (setenv "https_proxy" nil))
 
-(mt/set-proxy "clash")
+;; (mt/set-proxy "clash")
 
 (provide 'init-network)
 
