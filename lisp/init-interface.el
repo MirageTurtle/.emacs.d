@@ -22,18 +22,18 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package dashboard
- :ensure t
- :config
- (setq dashboard-banner-logo-title "Enjoy Hacking!")
- ;; (setq dashboard-projects-backend 'projectile) ; I have given up projectile.
- (setq dashboard-startup-banner 'logo)
- ;; (setq dashboard-startup-banner nil)
- ;; I actually not good at using bookmarks and agenda, so I remove them temporarily.
- (setq dashboard-items '((recents  . 10)
-		  ;; (bookmarks . 5)
-		  ;; (agenda . 5)
-		  (projects . 10)))
- (dashboard-setup-startup-hook))
+  :ensure t
+  :config
+  (setq dashboard-banner-logo-title "Enjoy Hacking!")
+  (setq dashboard-projects-backend 'projectile)
+  (setq dashboard-startup-banner 'logo)
+  ;; (setq dashboard-startup-banner nil)
+  ;; I actually not good at using bookmarks and agenda, so I remove them temporarily.
+  (setq dashboard-items '((recents  . 10)
+			  ;; (bookmarks . 5)
+			  ;; (agenda . 5)
+			  (projects . 10)))
+  (dashboard-setup-startup-hook))
 
 (provide 'init-interface)
 

@@ -37,7 +37,8 @@
   ((python-mode) . eglot-ensure)
   ((sh-mode bash-ts-mode) . eglot-ensure)
   ((rust-mode) . eglot-ensure)
-  ((go-mode) . eglot-ensure))
+  ((go-mode) . eglot-ensure)
+  ((c-mode) . eglot-ensure))
 
 ;; eldoc-box
 (use-package eldoc-box
@@ -120,7 +121,8 @@
   :straight t
   :config
   (apheleia-global-mode +1)
-  (setq apheleia-remote-algorithm "local"))
+  (setq apheleia-remote-algorithm "remote"))
+
 (provide 'init-prog)
 
 ;;; init-prog.el ends here
