@@ -159,7 +159,7 @@
 
 (require 'init-bib)
 
-(require 'init-telega)
+;; (require 'init-telega)
 
 ;; (require 'init-eaf)
 
