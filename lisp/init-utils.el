@@ -1,4 +1,4 @@
-;;; init-utils.el
+;;; init-utils.el -*- lexical-binding: t; -*-
 
 (defun print-elements-of-list (list)
   ;; Or maybe use cl-prettyprint?

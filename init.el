@@ -70,7 +70,6 @@
   ())
 
 
-(require 'init-env)
 (require 'init-network)
 
 ;; (setq package-install-upgrade-built-in t)
@@ -126,6 +125,7 @@
   (require 'use-package))
 
 
+(require 'init-env)
 (require 'init-utils)
 (require 'init-efficiency)
 (require 'init-completion)
