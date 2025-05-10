@@ -149,6 +149,7 @@
 (require 'init-proj)
 
 (require 'init-prog)
+(require 'init-c)
 (require 'init-python)
 (require 'init-org)
 (require 'init-lua)
