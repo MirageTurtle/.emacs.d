@@ -146,6 +146,7 @@
 (require 'init-copilot)
 (require 'init-treesit)
 (require 'init-emigo)
+(require 'init-proj)
 
 (require 'init-prog)
 (require 'init-python)
