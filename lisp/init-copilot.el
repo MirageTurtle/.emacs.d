@@ -8,9 +8,6 @@
 (use-package editorconfig
   :ensure t)
 
-(use-package jsonrpc
-  :ensure t)
-
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
   :ensure t

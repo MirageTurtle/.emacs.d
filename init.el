@@ -143,12 +143,12 @@
 (require 'init-atomic-chrome)
 
 ;; (require 'init-lsp-bridge)
-(require 'init-copilot)
 (require 'init-treesit)
-(require 'init-emigo)
 (require 'init-proj)
 
 (require 'init-prog)
+;; (require 'init-emigo)
+(require 'init-copilot)
 (require 'init-c)
 (require 'init-python)
 (require 'init-org)

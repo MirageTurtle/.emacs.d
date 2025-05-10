@@ -15,6 +15,9 @@
 
 ;;; Code:
 
+(use-package jsonrpc
+  :straight (:type built-in))
+
 (add-hook 'prog-mode-hook #'show-paren-mode) ; highlight electric pair in program mode
 (add-hook 'prog-mode-hook #'hs-minor-mode) ; fold code block in program mode
 
@@ -31,10 +34,11 @@
 ;; eglot
 (use-package eglot
   :ensure t
+  :after jsonrpc
   :hook
   ((json-mode jsonc-mode) . eglot-ensure)
   ((js2-mode typescript-mode) . eglot-ensure)
-  ((python-mode) . eglot-ensure)
+  ((python-ts-mode) . eglot-ensure)
   ((sh-mode bash-ts-mode) . eglot-ensure)
   ((rust-mode) . eglot-ensure)
   ((go-mode) . eglot-ensure)
@@ -98,7 +102,7 @@
    '("\\.sass\\'" . sass-mode)
    '("\\.md\\'" . markdown-mode)
    '("\\.markdown\\'" . markdown-mode)
-   '("\\.py\\'" . python-mode)
+   '("\\.py\\'" . python-ts-mode)
    '("\\.el\\'" . emacs-lisp-mode)
    '("\\.sh\\'" . shell-script-mode)
    '("\\.yaml\\'" . yaml-mode)
