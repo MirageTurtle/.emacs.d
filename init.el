@@ -144,7 +144,7 @@
 
 ;; (require 'init-lsp-bridge)
 (require 'init-copilot)
-(require 'init-tree-sitter)
+(require 'init-treesit)
 (require 'init-emigo)
 
 (require 'init-prog)
