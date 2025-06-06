@@ -33,8 +33,8 @@
 ;; (setq org-fontify-done-headline t)
 (setq org-footnote-auto-adjust t)
 
-;; for my personal todo
-(setq org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+;; todo status
+(setq org-todo-keywords '((sequence "TODO(t)" "ACTV(a)" "WAIT(w)" "|" "DONE(d/!)" "CANC(c@/!)")))
 
 ;; (setq org-log-done 'time)
 (setq org-log-done 'note)
@@ -55,12 +55,14 @@
   (setq org-superstar-headline-bullets-list '("◉" "○" "⚬" "◈" "◇"))
   (setq org-superstar-special-todo-items t) ;; Makes TODO header bullets into boxes
   (setq org-superstar-todo-bullet-alist '(("TODO"  . 9744)
-                                          ("WAITING"  . 9744)
+					  ("ACTV"  . 9635)
+                                          ("WAIT"  . 9744)
 					  ("DONE"  . 9745)
-					  ("CANCELLED"  . 9746)))
-  :hook (org-mode . org-superstar-mode))
+					  ("CANC"  . 9746)))
+  :hook
+  (org-mode . org-superstar-mode))
 
-; For org-roam
+;; For org-roam
 (use-package org-roam
   :ensure t
   :after org
@@ -111,7 +113,7 @@
    (:map org-mode-map
 	 (("C-c n i" . org-roam-node-insert)))))
 
-; For org-agenda
+;; For org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 (use-package org-agenda
   :after org-roam
@@ -140,25 +142,25 @@
          (org-element-property :todo-type h)))))
 
   (defun vulpea-withtodo-update-tag ()
-      "Update `WITHTODO' tag in the current buffer."
-      (interactive)
-      (when (and (not (active-minibuffer-window))
-                 (vulpea-buffer-p))
-        (save-excursion
-          (goto-char (point-min))
-          (let* ((tags (vulpea-buffer-tags-get))
-                 (original-tags tags))
-            (if (vulpea-withtodo-p)
-                (setq tags (cons "WITHTODO" tags))
-              (setq tags (remove "WITHTODO" tags)))
+    "Update `WITHTODO' tag in the current buffer."
+    (interactive)
+    (when (and (not (active-minibuffer-window))
+               (vulpea-buffer-p))
+      (save-excursion
+        (goto-char (point-min))
+        (let* ((tags (vulpea-buffer-tags-get))
+               (original-tags tags))
+          (if (vulpea-withtodo-p)
+              (setq tags (cons "WITHTODO" tags))
+            (setq tags (remove "WITHTODO" tags)))
 
-            ;; cleanup duplicates
-            (setq tags (seq-uniq tags))
+          ;; cleanup duplicates
+          (setq tags (seq-uniq tags))
 
-            ;; update tags if changed
-            (when (or (seq-difference tags original-tags)
-                      (seq-difference original-tags tags))
-              (apply #'vulpea-buffer-tags-set tags))))))
+          ;; update tags if changed
+          (when (or (seq-difference tags original-tags)
+                    (seq-difference original-tags tags))
+            (apply #'vulpea-buffer-tags-set tags))))))
 
   (defun vulpea-buffer-p ()
     "Return non-nil if the currently visited buffer is a note."
@@ -168,16 +170,16 @@
           (file-name-directory buffer-file-name))))
 
   (defun vulpea-withtodo-files ()
-      "Return a list of note files containing `WITHTODO' tag." ;
-      (seq-uniq
-       (seq-map
-        #'car
-        (org-roam-db-query
-         [:select [nodes:file]
-          :from tags
-          :left-join nodes
-          :on (= tags:node-id nodes:id)
-          :where (like tag (quote "%\"WITHTODO\"%"))]))))
+    "Return a list of note files containing `WITHTODO' tag." ;
+    (seq-uniq
+     (seq-map
+      #'car
+      (org-roam-db-query
+       [:select [nodes:file]
+		:from tags
+		:left-join nodes
+		:on (= tags:node-id nodes:id)
+		:where (like tag (quote "%\"WITHTODO\"%"))]))))
 
   (defun vulpea-agenda-files-update (&rest _)
     "Update the value of `org-agenda-files'."
