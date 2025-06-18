@@ -158,6 +158,7 @@
 (require 'init-rust)
 (require 'init-go)
 (require 'init-bash)
+(require 'init-typst)
 
 (require 'init-bib)
 

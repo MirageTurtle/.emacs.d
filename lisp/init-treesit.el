@@ -17,7 +17,8 @@
           (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod"))
           (python     . ("https://github.com/tree-sitter/tree-sitter-python"))
           (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
-          (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"))))
+          (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"))
+	  (typst      . ("https://github.com/uben0/tree-sitter-typst"))))
   :hook
   (prog-mode . treesit-fold-mode)
   :bind
