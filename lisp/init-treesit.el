@@ -19,7 +19,8 @@
           (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
           (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"))
 	  (typst      . ("https://github.com/uben0/tree-sitter-typst"))
-	  (c          . ("https://github.com/tree-sitter/tree-sitter-c"))))
+	  (c          . ("https://github.com/tree-sitter/tree-sitter-c"))
+	  (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))))
   :hook
   (prog-mode . treesit-fold-mode)
   :bind
