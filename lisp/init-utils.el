@@ -53,6 +53,17 @@ DOCSTRING and BODY are as in `defun'.
     (insert-file-contents filepath)
     (string-trim (buffer-string))))
 
+(defun mt/open-terminal-here ()
+  "Open the default system terminal in the current buffer's working directory."
+  ;; TODO: the opened terminal is along with Emacs environment variables
+  ;; or something (you will use the python virtual environment in Emacs).
+  (interactive)
+  (let ((dir (expand-file-name default-directory)))
+    (cond
+     (*is-a-mac*
+      (shell-command (format "Alacritty --working-directory \"%s\"" dir)))
+     (t (message "Unsupported system type")))))
+
 (provide 'init-utils)
 
 ;;; init-utils.el ends here.
