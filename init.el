@@ -127,6 +127,7 @@
 
 (require 'init-env)
 (require 'init-utils)
+(require 'init-tramp)
 (require 'init-efficiency)
 (require 'init-completion)
 (require 'init-emoji)
@@ -159,6 +160,7 @@
 (require 'init-go)
 (require 'init-bash)
 (require 'init-typst)
+(require 'init-docker)
 
 (require 'init-bib)
 
