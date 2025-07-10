@@ -64,6 +64,19 @@ DOCSTRING and BODY are as in `defun'.
       (shell-command (format "Alacritty --working-directory \"%s\"" dir)))
      (t (message "Unsupported system type")))))
 
+(defun mt/insert-custom-pair (left right)
+  "Insert (LEFT RIGHT) to insert-pair-alist"
+  ;; get the ASCII values of the characters
+  (let ((lch (string-to-char left))
+	(rch (string-to-char right)))
+    ;; check if the characters are valid
+    (unless (and (characterp lch) (characterp rch))
+      (error "Invalid characters for pair: %s, %s" left right))
+    ;; check if the pair already exists
+    (unless (assoc lch insert-pair-alist)
+      (add-to-list 'insert-pair-alist (list lch rch))
+      (message "Inserted pair: %s%s" left right))))
+
 (provide 'init-utils)
 
 ;;; init-utils.el ends here.

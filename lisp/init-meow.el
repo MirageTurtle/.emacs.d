@@ -147,10 +147,12 @@ Use a negative argument to create a backward selection."
      '("z" . meow-pop-selection)
      '("'" . repeat)
      '("<escape>" . ignore)))
+  (require 'init-utils)
+  (mt/insert-custom-pair "*" "*")
   (setq wrap-keymap
 	(let ((map (make-keymap)))
           (suppress-keymap map)
-          (dolist (k '("(" "[" "{" "<" "\""))
+          (dolist (k '("(" "[" "{" "<" "\"" "*"))
             (define-key map k #'insert-pair))
           map))
   (meow-normal-define-key (cons "\\" wrap-keymap))
