@@ -48,38 +48,38 @@
   :config
   (setq dabbrev-ignored-buffer-regexps '("\\.\\(?:pdf\\|jpe?g\\|png\\)\\'")))
 
-(use-package vertico
-  :straight (:files (:defaults "extensions/*.el"))
-  :bind (:map vertico-map
-              ("TAB" . minibuffer-complete)
-              ("<tab>" . minibuffer-complete)
-              ("C-<return>" . vertico-exit-input)
-              ("C-, ." . vertico-quick-jump))
-  :hook ((after-init . vertico-mode))
-  :defines (crm-separator)
-  :config
-  (setq vertico-cycle t
-        vertico-resize nil
-        vertico-count 15)
+;; (use-package vertico
+;;   :straight (:files (:defaults "extensions/*.el"))
+;;   :bind (:map vertico-map
+;;               ("TAB" . minibuffer-complete)
+;;               ("<tab>" . minibuffer-complete)
+;;               ("C-<return>" . vertico-exit-input)
+;;               ("C-, ." . vertico-quick-jump))
+;;   :hook ((after-init . vertico-mode))
+;;   :defines (crm-separator)
+;;   :config
+;;   (setq vertico-cycle t
+;;         vertico-resize nil
+;;         vertico-count 15)
 
-  (defadvice! +vertico--set-crm-separator-a (args)
-    :filter-args #'completing-read-multiple
-    (cons (concat "[CRM"
-                  (replace-regexp-in-string "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
-                                            crm-separator)
-                  "] "
-                  (car args))
-          (cdr args)))
-  ;; WORKAROUND: https://github.com/minad/vertico#problematic-completion-commands
-  (setq org-refile-use-outline-path 'file
-        org-outline-path-complete-in-steps nil)
-  )
+;;   (defadvice! +vertico--set-crm-separator-a (args)
+;;     :filter-args #'completing-read-multiple
+;;     (cons (concat "[CRM"
+;;                   (replace-regexp-in-string "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+;;                                             crm-separator)
+;;                   "] "
+;;                   (car args))
+;;           (cdr args)))
+;;   ;; WORKAROUND: https://github.com/minad/vertico#problematic-completion-commands
+;;   (setq org-refile-use-outline-path 'file
+;;         org-outline-path-complete-in-steps nil)
+;;   )
 
 ;; marginalia
 (use-package marginalia
- :ensure t
- :hook (vertico-mode . marginalia-mode)
- :bind (:map minibuffer-local-map
-     ("M-a" . marginalia-cycle)))
+  :ensure t
+  :hook (vertico-mode . marginalia-mode)
+  :bind (:map minibuffer-local-map
+	      ("M-a" . marginalia-cycle)))
 
 (provide 'init-completion)

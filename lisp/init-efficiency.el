@@ -67,7 +67,7 @@
   ("C-x o" . ace-window))
 ;; https://github.com/abo-abo/oremacs/blob/a24a45f079a0eaa7f584bc32ce3b33a545f29ff7/keys.el#L256-L287
 (defhydra hydra-window (:color red
-                        :columns nil)
+                               :columns nil)
   "window"
   ("h" windmove-left nil)
   ("j" windmove-down nil)
@@ -81,12 +81,12 @@
          (interactive)
          (split-window-right)
          (windmove-right))
-       "vert")
+   "vert")
   ("x" (lambda ()
          (interactive)
          (split-window-below)
          (windmove-down))
-       "horz")
+   "horz")
   ("t" transpose-frame "'" :exit t)
   ("o" delete-other-windows "one" :exit t)
   ("a" ace-window "ace")
@@ -162,15 +162,15 @@ WIN-ID : Window index."
 ;; undo-tree
 ;; ~C-x u~ to open undo-tree-visualizer
 (use-package undo-tree
- :ensure t
- :init (global-undo-tree-mode)
- :custom
- (undo-tree-auto-save-history nil))
+  :ensure t
+  :init (global-undo-tree-mode)
+  :custom
+  (undo-tree-auto-save-history nil))
 
 ;; which-key
 (use-package which-key
- :ensure t
- :init (which-key-mode))
+  :ensure t
+  :init (which-key-mode))
 
 ;; avy
 (use-package avy
@@ -186,6 +186,7 @@ WIN-ID : Window index."
   :ensure t
   :config
   (yas-global-mode 1))
+
 
 (provide 'init-efficiency)
 
