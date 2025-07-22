@@ -131,7 +131,7 @@
 (require 'init-efficiency)
 (require 'init-completion)
 (require 'init-emoji)
-(require 'init-ivy)
+;; (require 'init-ivy)
 (require 'init-meow)
 (require 'init-search)
 
