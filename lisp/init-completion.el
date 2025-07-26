@@ -56,9 +56,9 @@
               ("C-<return>" . vertico-exit-input)
               ("C-, ." . vertico-quick-jump))
   :hook ((after-init . vertico-mode))
+  :after (consult)
   :defines (crm-separator)
   :config
-  (vertico-mode 1)
   (setq vertico-cycle t
         vertico-resize nil
         vertico-count 15)
