@@ -35,6 +35,8 @@
 (use-package eglot
   :ensure t
   :after jsonrpc
+  :config
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   :hook
   ((json-mode jsonc-mode) . eglot-ensure)
   ((js2-mode typescript-mode) . eglot-ensure)
@@ -42,7 +44,8 @@
   ((sh-mode bash-ts-mode) . eglot-ensure)
   ((rust-mode) . eglot-ensure)
   ((go-mode) . eglot-ensure)
-  ((c-mode) . eglot-ensure))
+  ((c-mode) . eglot-ensure)
+  ((nix-mode) . eglot-ensure))
 
 ;; eldoc-box
 (use-package eldoc-box

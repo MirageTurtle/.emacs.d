@@ -161,6 +161,7 @@
 (require 'init-bash)
 (require 'init-typst)
 (require 'init-docker)
+(require 'init-nix)
 
 (require 'init-bib)
 
