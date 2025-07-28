@@ -89,7 +89,8 @@
   :hook (after-init . consult-mode)
   :config
   (setq consult-narrow-key "<")
-  (setq consult-preview-key 'any))
+  (setq consult-preview-key 'any)
+  (setq completion-styles '(substring basic partial-completion emacs22)))
 
 ;; marginalia
 (use-package marginalia
