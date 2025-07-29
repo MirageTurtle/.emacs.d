@@ -10,7 +10,7 @@
 
 (require 'init-prog)
 
-(setq sh-basic-offset 2) ; set sh basic indent to 2 spaces
+;; (setq sh-basic-offset 4) ; set sh basic indent to 4 spaces (default is 4)
 
 (unless (assoc 'bash treesit-language-source-alist)
   (push '(bash . ("https://github.com/tree-sitter/tree-sitter-bash")) treesit-language-source-alist))
