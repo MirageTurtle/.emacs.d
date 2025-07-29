@@ -15,6 +15,8 @@
 
 ;;; Code:
 
+(setq-default indent-tabs-mode nil) ; use space instead of tab
+
 (use-package jsonrpc
   :straight (:type built-in))
 
@@ -129,7 +131,7 @@
   :config
   (apheleia-global-mode +1)
   (setq apheleia-remote-algorithm "remote")
-  (setq apheleia-formatters-respect-indent-level nil))
+  (setq apheleia-formatters-respect-indent-level t))
 
 (provide 'init-prog)
 
