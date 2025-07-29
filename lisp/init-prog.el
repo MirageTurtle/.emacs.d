@@ -129,15 +129,7 @@
   :config
   (apheleia-global-mode +1)
   (setq apheleia-remote-algorithm "remote")
-  (push '(prettier-json-space
-	  . ("prettier" "--stdin-filepath" filepath "--parser=json"))
-	apheleia-formatters)
-  (setf (alist-get 'json-mode apheleia-mode-alist)
-	'(prettier-json-space))
-  (setf (alist-get 'js-json-mode apheleia-mode-alist)
-	'(prettier-json-space))
-  (setf (alist-get 'json-js-mode apheleia-mode-alist)
-	'(prettier-json-space)))
+  (setq apheleia-formatters-respect-indent-level nil))
 
 (provide 'init-prog)
 
