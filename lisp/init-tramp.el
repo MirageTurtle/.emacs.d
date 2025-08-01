@@ -2,7 +2,7 @@
 
 ;; https://www.gnu.org/software/tramp/#Frequently-Asked-Questions-1
 ;; (setq tramp-verbose 1)
-(setq tramp-default-method "scp")
+(setq tramp-default-method "scpx")
 (setq vc-ignore-dir-regexp
       (format "\\(%s\\)\\|\\(%s\\)"
               vc-ignore-dir-regexp
