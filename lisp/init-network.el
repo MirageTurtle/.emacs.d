@@ -6,7 +6,9 @@
 ;; Define the alist for potential proxy names
 (setq mt/proxy-alist '(
 		       ("clash" . "http://127.0.0.1:7897")
-		       ("clash-socks5" . "socks5://127.0.0.1:7897")))
+		       ("clash-socks5" . "socks5://127.0.0.1:7897")
+                       ("sing-box" . "http://127.0.0.1:2333")
+                       ("sing-box-socks5" . "socks5://127.0.0.1:2333")))
 
 ;; some functions for proxy
 ;;; clash
