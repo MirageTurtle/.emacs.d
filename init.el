@@ -138,14 +138,13 @@
 (require 'init-git)
 (require 'init-theme)
 (require 'init-interface)
-(require 'init-dirvish)
+;; (require 'init-dirvish)
 
 (require 'init-llm)
 (require 'init-atomic-chrome)
 
 ;; (require 'init-lsp-bridge)
 (require 'init-treesit)
-(require 'init-proj)
 
 (require 'init-prog)
 ;; (require 'init-emigo)

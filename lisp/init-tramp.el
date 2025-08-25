@@ -35,4 +35,6 @@
 (setq tramp-ssh-controlmaster-options nil)
 (setq tramp-use-connection-share nil) ; use the ssh config file for connections
 
+(remove-hook 'find-file-hook #'doom-modeline-update-buffer-file-name)
+
 (provide 'init-tramp)

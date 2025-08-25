@@ -22,6 +22,7 @@
 
 (add-hook 'prog-mode-hook #'show-paren-mode) ; highlight electric pair in program mode
 (add-hook 'prog-mode-hook #'hs-minor-mode) ; fold code block in program mode
+(add-hook 'prog-mode-hook #'display-line-numbers-mode) ; show line numbers in program mode
 
 (use-package reformatter
   :ensure t)
@@ -39,15 +40,20 @@
   :after jsonrpc
   :config
   (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
+  (defun mt/eglot-ensure ()
+    "Ensure eglot is enabled if the current buffer is not remote."
+    (unless (file-remote-p default-directory)
+      (eglot-ensure)))
   :hook
-  ((json-mode jsonc-mode) . eglot-ensure)
-  ((js2-mode typescript-mode) . eglot-ensure)
-  ((python-ts-mode) . eglot-ensure)
-  ((sh-mode bash-ts-mode) . eglot-ensure)
-  ((rust-mode) . eglot-ensure)
-  ((go-mode) . eglot-ensure)
-  ((c-mode) . eglot-ensure)
-  ((nix-mode) . eglot-ensure))
+  ((json-mode jsonc-mode) . mt/eglot-ensure)
+  ((js2-mode typescript-mode) . mt/eglot-ensure)
+  ((python-ts-mode) . mt/eglot-ensure)
+  ((sh-mode bash-ts-mode) . mt/eglot-ensure)
+  ((rust-mode) . mt/eglot-ensure)
+  ((go-mode) . mt/eglot-ensure)
+  ((c-mode) . mt/eglot-ensure)
+  ((nix-mode) . mt/eglot-ensure))
+
 
 ;; eldoc-box
 (use-package eldoc-box
