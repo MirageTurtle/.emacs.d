@@ -33,6 +33,6 @@
     (remove-hook 'compilation-mode-hook #'tramp-compile-disable-ssh-controlmaster-options)))
 
 (setq tramp-ssh-controlmaster-options nil)
-(setq tramp-use-connection-share t) ; use the ssh config file for connections
+(setq tramp-use-connection-share nil) ; use the ssh config file for connections
 
 (provide 'init-tramp)
