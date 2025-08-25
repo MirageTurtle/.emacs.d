@@ -53,7 +53,7 @@
   :bind (:map vertico-map
               ("TAB" . minibuffer-complete)
               ("<tab>" . minibuffer-complete)
-              ("C-<return>" . vertico-exit-input)
+              ("C-<return>" . vertico-insert)
               ("C-, ." . vertico-quick-jump))
   :hook ((after-init . vertico-mode))
   :after (consult)
