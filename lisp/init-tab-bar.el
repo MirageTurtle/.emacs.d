@@ -12,16 +12,20 @@
   (tab-bar-tab-name-truncated-max 20)
   (tab-bar-auto-width nil)
   :config
-  ;; https://emacs-china.org/t/tab-bar/26008
-  ;; Original Author: Roife
-  ;; 给 tab 两边加上空格，更好看
-  (setq tab-bar-tab-name-format-function
-        (lambda (tab i)
-          (let ((face (funcall tab-bar-tab-face-function tab)))
-            (concat
-             (propertize " " 'face face)
-             (propertize (number-to-string i) 'face `(:inherit ,face :weight ultra-bold :underline t))
-             (propertize (concat " " (alist-get 'name tab) " ") 'face face)))))
+  (defun mt/tab-bar-tab-name-format-function (tab i)
+    "Return the name for TAB with index I, prefixing a * when the current buffer is modified.
+The star is shown only on the selected tab (cheap & reliable)."
+    (let* ((face (funcall tab-bar-tab-face-function tab))
+           ;; Selected tabs get the `tab-bar-tab` face; others get `tab-bar-tab-inactive`.
+           (selected (eq face 'tab-bar-tab))
+           (buf (and selected (window-buffer (selected-window))))
+           (modified (and buf (buffer-modified-p buf)))
+           (num (concat (if modified "*" "") (number-to-string i))))
+      (concat
+       (propertize " " 'face face)
+       (propertize num 'face `(:inherit ,face :weight ultra-bold :underline t))
+       (propertize (concat " " (alist-get 'name tab) " ") 'face face))))
+  (setq tab-bar-tab-name-format-function #'mt/tab-bar-tab-name-format-function)
   )
 
 (provide 'init-tab-bar)
