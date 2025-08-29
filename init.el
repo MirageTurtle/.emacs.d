@@ -134,6 +134,7 @@
 ;; (require 'init-ivy)
 (require 'init-meow)
 (require 'init-search)
+(require 'init-tab-bar)
 
 (require 'init-git)
 (require 'init-theme)
