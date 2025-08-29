@@ -1,39 +1,5 @@
 ;;; completion.el -*- lexical-binding: t; -*-
 
-;; company
-(use-package company
-  :straight t
-  :hook (after-init . global-company-mode)
-  :config
-  (setq company-tooltip-align-annotations t
-        company-tooltip-limit 12
-        company-idle-delay 0.1
-        company-echo-delay (if (display-graphic-p) nil 0)
-        company-minimum-prefix-length 1
-	company-show-numbers t
-        ;; company-icon-margin 3
-        company-require-match nil
-        company-dabbrev-ignore-case nil
-        company-dabbrev-downcase nil
-        company-global-modes '(not erc-mode message-mode help-mode
-                                   gud-mode eshell-mode shell-mode)
-        company-backends '((company-capf :with company-yasnippet)
-                           (company-dabbrev-code company-keywords company-files)
-                           company-dabbrev)
-        ;; company-format-margin-function nil
-        company-transformers '(company-sort-prefer-same-case-prefix
-                               company-sort-by-occurrence
-                               company-sort-by-backend-importance))
-  )
-
-;; company-box
-(use-package company-box
-  :straight t
-  :if (display-graphic-p)
-  :hook (company-mode . company-box-mode)
-  :config
-  (setq company-box-icons-alist 'company-box-icons-all-the-icons))
-
 (use-package all-the-icons
   :straight t
   :if (display-graphic-p))
@@ -91,6 +57,29 @@
   (setq consult-narrow-key "<")
   (setq consult-preview-key 'any)
   (setq completion-styles '(substring basic partial-completion emacs22)))
+
+;; corfu
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  :custom
+  (corfu-auto t) ;; enable auto completion
+  (corfu-cycle t) ;; enable cycling for `corfu-next' and `corfu-previous'
+  (corfu-preview-current nil) ;; disable current candidate preview
+  (corfu-preselect 'prompt)   ;; preselect the prompt
+  (corfu-on-exact-match nil) ;; do not complete on exact match
+  (corfu-scroll-margin 10)     ;; set scroll margin
+  )
+
+;; orderless
+(use-package orderless
+  :demand t
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; marginalia
 (use-package marginalia

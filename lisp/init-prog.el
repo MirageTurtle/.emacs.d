@@ -74,26 +74,6 @@
 	("M-s-j" . flymake-goto-next-error)
 	("M-s-k" . flymake-goto-prev-error)))
 
-;; corfu
-(use-package corfu
-  :ensure t
-  :init
-  (global-corfu-mode)
-  :config
-  (setq corfu-auto t) ;; Enable auto completion
-  (setq corfu-cycle t) ;; Enable cycling for `corfu-next' and `corfu-previous'
-  (setq corfu-echo-delay 0) ;; Disable echo delay
-  (setq corfu-preview-current nil) ;; Disable current candidate preview
-  (setq corfu-preselect 'prompt) ;; Preselect the prompt
-  (setq corfu-on-exact-match nil) ;; Do not complete on exact match
-  (setq corfu-scroll-margin 5) ;; Set scroll margin
-  :bind
-  (:map corfu-map
-        ("TAB" . corfu-next)
-        ("<tab>" . corfu-next)
-        ("S-TAB" . corfu-previous)
-        ("<backtab>" . corfu-previous)))
-
 ;; set the default mode for some file types
 ;; for every file type, if it is not in auto-mode-alist,
 ;; it will be added to auto-mode-alist
