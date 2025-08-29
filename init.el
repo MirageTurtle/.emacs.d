@@ -135,6 +135,7 @@
 (require 'init-meow)
 (require 'init-search)
 (require 'init-tab-bar)
+(require 'init-dired)
 
 (require 'init-git)
 (require 'init-theme)
