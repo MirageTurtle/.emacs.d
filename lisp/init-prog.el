@@ -124,7 +124,8 @@
    '("\\.go\\'" . go-mode)
    '("\\.rs\\'" . rust-mode)
    '("\\.lua\\'" . lua-mode)
-   '("\\.sql\\'" . sql-mode))
+   '("\\.sql\\'" . sql-mode)
+   '("\\.cu\\'" . c++-mode))
   "List of default mode for file types.")
 
 (dolist (pair mt/default-mode-alist)
