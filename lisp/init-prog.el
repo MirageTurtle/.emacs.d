@@ -23,6 +23,7 @@
 (add-hook 'prog-mode-hook #'show-paren-mode) ; highlight electric pair in program mode
 (add-hook 'prog-mode-hook #'hs-minor-mode) ; fold code block in program mode
 (add-hook 'prog-mode-hook #'display-line-numbers-mode) ; show line numbers in program mode
+(add-hook 'prog-mode-hook #'which-function-mode) ; show current function in mode line
 
 (use-package reformatter
   :ensure t)

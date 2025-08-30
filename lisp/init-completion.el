@@ -56,7 +56,7 @@
   :config
   (setq consult-narrow-key "<")
   (setq consult-preview-key 'any)
-  (setq completion-styles '(substring basic partial-completion emacs22)))
+  (setq completion-styles '(orderless)))
 
 ;; corfu
 (use-package corfu
