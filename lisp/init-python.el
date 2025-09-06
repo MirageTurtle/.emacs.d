@@ -60,6 +60,16 @@
 ;;   :config
 ;;   (add-hook 'python-mode-hook 'blacken-mode))
 
+(add-to-list 'dape-configs
+             `(debugpy
+               modes (python-mode python-ts-mode)
+               command "python3"
+               command-args ("-m" "debugpy.adapter")
+               :type "executable"
+               :request "launch"
+               :cwd dape-cwd
+               :program dape-buffer-default))
+
 (provide 'init-python)
 
 ;;; init-python.el ends here.
