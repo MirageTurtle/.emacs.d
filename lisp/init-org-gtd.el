@@ -2,8 +2,19 @@
 ;;; Original article: https://web.archive.org/web/20170916093203/http://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 ;;; Original article (Chinese): https://grass.show/translate/do-gtd-in-orgmode/
 
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (setq truncate-lines nil)
+	    visual-line-mode))
+(add-hook 'org-mode-hook 'org-indent-mode)
+
+
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c C-w") 'org-refile)
+
+(global-set-key (kbd "C-c a") 'org-agenda)
+(setq org-agenda-start-on-weekday 0) ;; start on Sunday
+
 (setq org-agenda-files '("~/gtd/inbox.org"
                          "~/gtd/gtd.org"
                          "~/gtd/tickler.org"))
