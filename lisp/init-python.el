@@ -54,12 +54,6 @@
 (use-package ein
   :ensure t)
 
-;; ;; for black
-;; (use-package blacken
-;;   :ensure t
-;;   :config
-;;   (add-hook 'python-mode-hook 'blacken-mode))
-
 (add-to-list 'dape-configs
              `(debugpy
                modes (python-mode python-ts-mode)
@@ -69,6 +63,12 @@
                :request "launch"
                :cwd dape-cwd
                :program dape-buffer-default))
+
+;; formatter package: apheleia
+(use-package apheleia
+  :config
+  (setf (alist-get 'python-mode apheleia-mode-alist) '(ruff))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(ruff)))
 
 (provide 'init-python)
 
