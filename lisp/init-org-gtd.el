@@ -2,11 +2,8 @@
 ;;; Original article: https://web.archive.org/web/20170916093203/http://emacs.cafe/emacs/orgmode/gtd/2017/06/30/orgmode-gtd.html
 ;;; Original article (Chinese): https://grass.show/translate/do-gtd-in-orgmode/
 
-(add-hook 'org-mode-hook
-	  (lambda ()
-	    (setq truncate-lines nil)
-	    visual-line-mode))
 (add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'org-mode-hook 'visual-line-mode)
 
 
 (global-set-key (kbd "C-c c") 'org-capture)
