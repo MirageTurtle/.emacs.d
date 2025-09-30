@@ -110,15 +110,18 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lsp-bridge yasnippet copilot cnfonts org-bullets org-roam eglot lua-mode pyvenv lsp-pyright lsp-ui yaml-pro json-mode multiple-cursors smart-tabs-mode wgrep lsp-treemacs lsp-ivy lsp-mode flycheck company treemacs-projectile treemacs counsel-projectile projectile undo-tree google-this rainbow-delimiters dashboard mwim counsel ivy use-package gnu-elpa-keyring-update)))
+   '(lsp-bridge yasnippet copilot cnfonts org-bullets eglot
+                lua-mode pyvenv lsp-pyright lsp-ui yaml-pro json-mode
+                multiple-cursors smart-tabs-mode wgrep lsp-treemacs
+                lsp-ivy lsp-mode flycheck company treemacs-projectile
+                treemacs counsel-projectile projectile undo-tree
+                google-this rainbow-delimiters dashboard mwim counsel
+                ivy use-package gnu-elpa-keyring-update)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(org-level-1 ((t (:inherit outline-1 :height 1.728))))
- ;; '(org-level-2 ((t (:inherit outline-2 :height 1.44))))
- ;; '(org-level-3 ((t (:inherit outline-3 :height 1.2))))
  )
 
 (eval-when-compile
@@ -165,7 +168,7 @@
 (require 'init-docker)
 (require 'init-nix)
 
-(require 'init-bib)
+;; (require 'init-bib)
 
 ;; (require 'init-telega)
 
