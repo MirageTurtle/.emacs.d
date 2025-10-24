@@ -29,5 +29,19 @@
 
 (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "CANC(c)")))
 
+;; ..., =...=, inline-src, src block (multiline too)
+(require 'org)
+(require 'org-element)
+(defun mt/org-copy-command-at-point ()
+  "Copy contents of verbatim, code, inline-src or src block at point."
+  (interactive)
+  (let* ((el (org-element-context))
+         (type (org-element-type el))
+         (val (and (memq type '(verbatim code inline-src-block src-block))
+                   (org-element-property :value el))))
+    (if val
+        (progn (kill-new val) (message "Copied: %s" val))
+      (user-error "Put point inside ..., =...=, inline-src, or src block"))))
+
 (provide 'init-org-gtd)
 ;;; init-org-gtd.el ends here
