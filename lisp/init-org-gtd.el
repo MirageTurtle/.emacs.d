@@ -43,5 +43,8 @@
         (progn (kill-new val) (message "Copied: %s" val))
       (user-error "Put point inside ..., =...=, inline-src, or src block"))))
 
+;; Set indentation of code blocks to zero
+(setq org-edit-src-content-indentation 0)
+
 (provide 'init-org-gtd)
 ;;; init-org-gtd.el ends here
