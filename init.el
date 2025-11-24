@@ -110,8 +110,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(lsp-bridge yasnippet copilot cnfonts org-bullets eglot
-                lua-mode pyvenv lsp-pyright lsp-ui yaml-pro json-mode
+   '(lsp-bridge yasnippet copilot cnfonts org-bullets eglot lua-mode
+                pyvenv lsp-pyright lsp-ui yaml-pro json-mode
                 multiple-cursors smart-tabs-mode wgrep lsp-treemacs
                 lsp-ivy lsp-mode flycheck company treemacs-projectile
                 treemacs counsel-projectile projectile undo-tree
@@ -122,7 +122,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(fringe ((t nil))))
 
 (eval-when-compile
   (require 'use-package))
