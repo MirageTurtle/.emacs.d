@@ -31,7 +31,7 @@
   (setq dashboard-projects-backend 'project-el)
   ;; (setq dashboard-startup-banner 'logo)
   ;; I actually not good at using bookmarks and agenda, so I remove them temporarily.
-  (setq dashboard-items '((recents  . 10)
+  (setq dashboard-items '((recents  . 30)
 			  (bookmarks . 5)
 			  (agenda . 5)
 			  (projects . 10)))
