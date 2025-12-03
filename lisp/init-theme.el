@@ -42,7 +42,10 @@
 
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1))
+  :init
+  (doom-modeline-mode 1)
+  :config
+  (setq doom-modeline-minor-modes t))
 
 ;; awesome-tray is a very brilliant mode-line, but I now use meow input
 ;; and I do not have ability to add a icon to show the status of meow,

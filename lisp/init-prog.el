@@ -139,7 +139,8 @@
   :config
   (apheleia-global-mode +1)
   (setq apheleia-remote-algorithm "remote")
-  (setq apheleia-formatters-respect-indent-level t))
+  (setq apheleia-formatters-respect-indent-level t)
+  (setq apheleia-mode-lighter " Aphe"))
 
 (provide 'init-prog)
 
