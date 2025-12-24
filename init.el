@@ -146,7 +146,6 @@
 (require 'init-interface)
 ;; (require 'init-dirvish)
 
-(require 'init-llm)
 (require 'init-atomic-chrome)
 
 ;; (require 'init-lsp-bridge)
