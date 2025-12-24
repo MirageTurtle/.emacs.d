@@ -1,4 +1,4 @@
-;;; init-json.el
+;;; init-json.el -*- lexical-binding: t; -*-
 
 (use-package json-mode
   :ensure t)

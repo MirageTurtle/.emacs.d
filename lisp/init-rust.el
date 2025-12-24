@@ -1,4 +1,4 @@
-;;; init-rust.el --- Rust configuration
+;;; init-rust.el --- Rust configuration -*- lexical-binding: t; -*-
 
 ;; (let ((rustup-bin "/opt/homebrew/opt/rustup/bin"))
 ;;   (when (file-exists-p rustup-bin)
