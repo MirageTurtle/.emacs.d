@@ -18,12 +18,12 @@
   (when (eq system-type 'darwin)
     (setq insert-directory-program "gls"))
   (setq dirvish-quick-access-entries
-   (append
-    '(("h" "~/"                         "Home")
-     ("e" "~/.emacs.d"                  "Emacs User Directory")
-     ("d" "~/Downloads/"                "Downloads")
-     ("r" "~/Documents/repo"            "Repository"))
-     `(("o" ,org-directory              "Org"))))
+        (append
+         '(("h" "~/"                         "Home")
+           ("e" "~/.emacs.d"                  "Emacs User Directory")
+           ("d" "~/Downloads/"                "Downloads")
+           ("r" "~/Documents/repo"            "Repository"))
+         `(("o" ,org-directory              "Org"))))
   ;; (dirvish-peek-mode) ; Preview files in minibuffer
   ;; (dirvish-side)
   (dirvish-side-follow-mode) ; similar to `treemacs-follow-mode'
