@@ -47,7 +47,8 @@
 ;;             (lsp-bridge-restart-process)))
 (add-hook 'pyvenv-post-activate-hooks
 	  (lambda ()
-	    (eglot-ensure)
+	    ;; call eglot interactively to restart server
+            (call-interactively 'eglot)
 	    (python-mode)))
 
 ;; ein is a juptyer notebook client
