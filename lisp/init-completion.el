@@ -71,6 +71,7 @@
   (corfu-preselect 'prompt)   ;; preselect the prompt
   (corfu-on-exact-match nil) ;; do not complete on exact match
   (corfu-scroll-margin 10)     ;; set scroll margin
+  (corfu-auto-prefix 2)      ;; start completing after 2 characters
   )
 
 ;; orderless
