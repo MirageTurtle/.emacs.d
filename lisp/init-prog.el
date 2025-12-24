@@ -39,6 +39,9 @@
 (use-package eglot
   :ensure t
   :after jsonrpc
+  :custom-face (eglot-highlight-symbol-face ((t (:underline t))))
+  :bind (:map eglot-mode-map
+              ("M-<return>" . eglot-code-actions))
   :config
   (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   (defun mt/eglot-ensure ()
