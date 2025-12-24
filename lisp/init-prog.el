@@ -39,7 +39,7 @@
 (use-package eglot
   :ensure t
   :after jsonrpc
-  :custom-face (eglot-highlight-symbol-face ((t (:underline t))))
+  :custom-face (eglot-highlight-symbol-face ((t (:underline t :weight bold))))
   :bind (:map eglot-mode-map
               ("M-<return>" . eglot-code-actions))
   :config
