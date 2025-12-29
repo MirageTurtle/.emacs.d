@@ -30,12 +30,11 @@
   (setq dashboard-banner-logo-title "Enjoy Hacking!")
   (setq dashboard-projects-backend 'project-el)
   ;; (setq dashboard-startup-banner 'logo)
-  ;; I actually not good at using bookmarks and agenda, so I remove them temporarily.
   (setq dashboard-items '((recents  . 30)
 			  (bookmarks . 5)
 			  (agenda . 5)
 			  (projects . 10)))
-  (setq dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
+  (setq dashboard-filter-agenda-entry 'dashboard-filter-agenda-by-time)
   (dashboard-setup-startup-hook))
 
 ;; Smooth scroll up & down
