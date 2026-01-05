@@ -55,15 +55,15 @@
 (use-package ein
   :ensure t)
 
-(add-to-list 'dape-configs
-             `(debugpy
-               modes (python-mode python-ts-mode)
-               command "python3"
-               command-args ("-m" "debugpy.adapter")
-               :type "executable"
-               :request "launch"
-               :cwd dape-cwd
-               :program dape-buffer-default))
+;; (add-to-list 'dape-configs
+;;              `(debugpy
+;;                modes (python-mode python-ts-mode)
+;;                command "python3"
+;;                command-args ("-m" "debugpy.adapter")
+;;                :type "executable"
+;;                :request "launch"
+;;                :cwd dape-cwd
+;;                :program dape-buffer-default))
 
 ;; formatter package: apheleia
 (use-package apheleia
