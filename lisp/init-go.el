@@ -6,7 +6,7 @@
 (require 'init-prog)
 
 (use-package go-mode
-  :ensure t
+  :straight t
   :hook
   (go-mode . go-format-on-save-mode)
   :config

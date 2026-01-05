@@ -10,7 +10,7 @@
 		indent-tabs-mode nil))
 
 (use-package clang-format
-  :ensure t
+  :straight t
   :defer t
   :config
   (setq clang-format-style "file"))

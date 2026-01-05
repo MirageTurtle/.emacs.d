@@ -26,18 +26,18 @@
 (add-hook 'prog-mode-hook #'which-function-mode) ; show current function in mode line
 
 (use-package reformatter
-  :ensure t)
+  :straight t)
 
 ;; debug
 (use-package dape
   ;; require jsonrpc >= 1.0.24, I use 1.0.25
-  :ensure t
+  :straight t
   :config
   (setq dape-buffer-window-arrangement 'right))
 
 ;; eglot
 (use-package eglot
-  :ensure t
+  :straight t
   :after jsonrpc
   :custom-face (eglot-highlight-symbol-face ((t (:underline t :weight bold))))
   :bind (:map eglot-mode-map
@@ -62,7 +62,7 @@
 ;; eldoc-box
 (use-package eldoc-box
   :straight (:type git :host github :repo "casouri/eldoc-box")
-  :ensure t
+  :straight t
   :hook
   (eglot-managed-mode . eldoc-box-hover-mode)
   :config

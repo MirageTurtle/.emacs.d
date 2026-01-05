@@ -4,16 +4,16 @@
 ;; This file bootstraps the configuration, which is divided into a number of other files.
 
 ;;; Code:
-(let ((minver "25.1"))
+(let ((minver "29.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-(when (version< emacs-version "26.1")
+(when (version< emacs-version "29.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 ;; (require 'init-benchmarking) ;; Measure startup time
 
-(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
+(defconst *spell-check-support-enabled* t) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 
@@ -103,6 +103,7 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 (straight-use-package 'use-package)
+;; (setq straight-use-package-by-default t)
 ;; (straight-pull-all)
 
 (custom-set-variables
@@ -127,7 +128,6 @@
 
 (eval-when-compile
   (require 'use-package))
-
 
 (require 'init-env)
 (require 'init-utils)

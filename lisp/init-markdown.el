@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package markdown-mode
-  :ensure t)
+  :straight t)
 
 (provide 'init-markdown)
 

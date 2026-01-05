@@ -4,7 +4,7 @@
 (require 'init-prog)
 
 (use-package nix-mode
-  :ensure t
+  :straight t
   :defer t
   :mode "\\.nix\\'")
 

@@ -2,7 +2,7 @@
 
 ;;; Code:
 (use-package dockerfile-mode
-  :ensure t
+  :straight t
   :defer t
   :mode ("Dockerfile\\'" . dockerfile-ts-mode))
 

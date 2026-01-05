@@ -48,7 +48,7 @@
 
 ;; pretty leading stars of headings
 (use-package org-superstar
-  :ensure t
+  :straight t
   :after org
   :config
   (setq org-superstar-leading-bullet " ")
@@ -64,7 +64,7 @@
 
 ;; For org-roam
 (use-package org-roam
-  :ensure t
+  :straight t
   :after org
   :init
   (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade

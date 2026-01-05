@@ -1,7 +1,7 @@
 ;;; init-json.el -*- lexical-binding: t; -*-
 
 (use-package json-mode
-  :ensure t)
+  :straight t)
 
 (provide 'init-json)
 

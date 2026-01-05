@@ -21,15 +21,14 @@
 
 ;; amx is an alternative to smex
 ;; (use-package amx
-;;   :ensure t
+;;   :straight t
 ;;   :config
 ;;   (amx-mode 1)
 ;;   )
 
 ;; Move Where I Mean
 (use-package mwim
-  ;; :straight t
-  :ensure t
+  :straight t
   :bind
   ("C-a" . mwim-beginning-of-code-or-line)
   ("C-e" . mwim-end-of-code-or-line))
@@ -52,7 +51,7 @@
 ;; https://emacs-china.org/t/meow/15679 says meow could replace multiple-cursor,
 ;; so I may remove it in the future.
 (use-package multiple-cursors
-  :ensure t
+  :straight t
   :bind
   ("C->" . mc/mark-next-like-this)
   ("C-<" . mc/mark-previous-like-this)
@@ -61,12 +60,12 @@
 ;; ace-window
 ;; ace-window is a very great package to switch windows.
 (use-package ace-window
-  :ensure t
+  :straight t
   :bind
   ("C-x o" . ace-window))
 ;; https://github.com/abo-abo/oremacs/blob/a24a45f079a0eaa7f584bc32ce3b33a545f29ff7/keys.el#L256-L287
 (use-package hydra
-  :ensure t
+  :straight t
   :config
 (defhydra hydra-window (:color red
                                :columns nil)
@@ -105,19 +104,19 @@
 ;; undo-tree
 ;; ~C-x u~ to open undo-tree-visualizer
 (use-package undo-tree
-  :ensure t
+  :straight t
   :init (global-undo-tree-mode)
   :custom
   (undo-tree-auto-save-history nil))
 
 ;; which-key
 (use-package which-key
-  :ensure t
+  :straight t
   :init (which-key-mode))
 
 ;; avy
 (use-package avy
-  :ensure t
+  :straight t
   :bind
   ;; I remove `avy-goto-char' because I can use `meow-find' to replace it.
   ;; And I use `avy-goto-line' more, so I bind it to `C-;'.
@@ -126,7 +125,7 @@
 
 
 (use-package yasnippet
-  :ensure t
+  :straight t
   :config
   (yas-global-mode 1))
 

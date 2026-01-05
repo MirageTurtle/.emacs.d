@@ -12,7 +12,7 @@
 
 
 (use-package helm-bibtex
-  :ensure t
+  :straight t
   :after org-roam
   :custom
   (bibtex-completion-notes-path org_refs)
@@ -20,7 +20,7 @@
   (bibtex-completion-library-path zot_pdf))
 
 (use-package org-roam-bibtex
-  :ensure t
+  :straight t
   :after org-roam
   :hook (org-roam-mode . org-roam-bibtex-mode)i
   :bind (("C-c n k" . orb-insert-link)
@@ -52,7 +52,7 @@
                  (file+head "ref/${citekey}.org" "#+title: ${title}\n"))))))
 
 (use-package org-noter
-  :ensure t
+  :straight t
   :after org-roam
   :custom
   (org-noter-notes-search-path '((concat org-directory "roam/ref/")))

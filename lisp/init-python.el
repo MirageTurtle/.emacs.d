@@ -15,7 +15,7 @@
 
 ;; virtual env
 (use-package pyvenv
-  :ensure t
+  :straight t
   :config
   (setenv "WORKON_HOME" (expand-file-name "~/Documents/venv"))
   ;; (setq python-shell-interpreter "python3")
@@ -53,7 +53,7 @@
 
 ;; ein is a juptyer notebook client
 (use-package ein
-  :ensure t)
+  :straight t)
 
 ;; (add-to-list 'dape-configs
 ;;              `(debugpy

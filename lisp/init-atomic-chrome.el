@@ -5,7 +5,7 @@
 ;;; Code:
 
 (use-package atomic-chrome
-  :ensure t
+  :straight t
   :config
   ;; (atomic-chrome-start-server)
   (setq atomic-chrome-buffer-open-style 'full)

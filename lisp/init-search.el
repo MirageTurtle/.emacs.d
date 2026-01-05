@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package rg
-  :ensure t)
+  :straight t)
 
 
 (provide 'init-search)

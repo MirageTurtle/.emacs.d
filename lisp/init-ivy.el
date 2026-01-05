@@ -10,10 +10,10 @@
 ;;; Code:
 
 (use-package counsel
-  :ensure t)
+  :straight t)
 
 (use-package ivy
-  :ensure t
+  :straight t
   :after counsel
   :init
   :config
@@ -39,7 +39,7 @@
    ))
 
 (use-package ivy-avy
-  :ensure t
+  :straight t
   :after (ivy avy)
   :bind
   (:map ivy-minibuffer-map

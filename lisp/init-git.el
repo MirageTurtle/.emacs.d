@@ -4,10 +4,10 @@
 ;;; Code:
 
 (use-package transient
-  :ensure t)
+  :straight t)
 
 (use-package magit
-  :ensure t
+  :straight t
   :bind
   ("C-x g" . magit-status)
   ("C-c g" . magit-dispatch)

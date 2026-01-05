@@ -43,7 +43,7 @@
   )
 
 (use-package consult
-  :ensure t
+  :straight t
   :bind (("C-x b" . consult-buffer)
 	 ;; ("C-x C-r" . consult-recent-file)
 	 ;; ("C-x C-f" . consult-find)
@@ -60,7 +60,7 @@
 
 ;; corfu
 (use-package corfu
-  :ensure t
+  :straight t
   :init
   (global-corfu-mode)
   (corfu-popupinfo-mode)
@@ -77,14 +77,14 @@
 ;; orderless
 (use-package orderless
   :demand t
-  :ensure t
+  :straight t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; marginalia
 (use-package marginalia
-  :ensure t
+  :straight t
   :hook (vertico-mode . marginalia-mode)
   :bind (:map minibuffer-local-map
 	      ("M-a" . marginalia-cycle)))

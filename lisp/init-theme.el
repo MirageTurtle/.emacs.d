@@ -1,13 +1,13 @@
 ;;; init-theme.el -*- lexical-binding: t; -*-
 
 ;; (use-package all-the-icons
-;;   :ensure t)
+;;   :straight t)
 
 ;; (use-package all-the-icons-nerd-fonts
-;;   :ensure t)
+;;   :straight t)
 
 (use-package nerd-icons
-  :ensure t)
+  :straight t)
 
 (defun mt/frame/nerd-fonts-check (frame)
   "Check if Nerd Fonts are installed, and install them if not."
@@ -22,7 +22,7 @@
 
 
 (use-package doom-themes
-  :ensure t
+  :straight t
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -41,7 +41,7 @@
   (doom-themes-org-config))
 
 (use-package doom-modeline
-  :ensure t
+  :straight t
   :init
   (doom-modeline-mode 1)
   :config
@@ -53,7 +53,7 @@
 ;; I keep the configuration here for (maybe future) reference.
 (use-package awesome-tray
   :straight (awesome-tray :type git :host github :repo "manateelazycat/awesome-tray")
-  ;; :ensure t
+  ;; :straight t
   :config
   ;; (awesome-tray-mode 1)
   (setq awesome-tray-active-modules '("location" "file-path" "buffer-name" "mode-name" "git" "battery" "date"))

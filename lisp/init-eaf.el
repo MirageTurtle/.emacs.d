@@ -38,7 +38,7 @@
   :straight (eaf :type git :host github :repo "emacs-eaf/emacs-application-framework"
                  :files ("*")
                  :post-build ("python" "install-eaf.py" "--install-core-deps"))
-  ;; :ensure t
+  ;; :straight t
   :config
   (when (and (boundp '*is-a-window*) *is-a-window*)
     (setq eaf-python-command "D:\\Applications\\Scoop\\apps\\python\\current\\python.exe")
@@ -48,12 +48,12 @@
   (setq eaf-proxy-port "7890"))
 
 (use-package eaf-demo
-  ;; :ensure t
+  ;; :straight t
   :after (eaf)
   :straight (eaf-demo :type git :host github :repo "emacs-eaf/eaf-demo" :files ("*")))
 
 (use-package eaf-browser
-  ;; :ensure t
+  ;; :straight t
   :after (eaf)
   :straight (eaf-browser :type git :host github :repo "emacs-eaf/eaf-browser" :files ("*")
                           :post-build (mt/eaf-install-deps (straight--build-dir "eaf-browser")))
@@ -79,13 +79,13 @@
     (eaf-bind-key close_buffer "s-w" eaf-browser-keybinding)))
 
 (use-package eaf-pdf-viewer
-  ;; :ensure t
+  ;; :straight t
   :after (eaf)
   :straight (eaf-pdf-viewer :type git :host github :repo "emacs-eaf/eaf-pdf-viewer" :files ("*")
                             :post-build (mt/eaf-install-deps (straight--build-dir "eaf-pdf-viewer"))))
 
 (use-package eaf-markdown-previewer
-  ;; :ensure t
+  ;; :straight t
   :after (eaf)
   :straight (eaf-markdown-previewer :type git :host github :repo "emacs-eaf/eaf-markdown-previewer" :files ("*")
                                     :post-build (mt/eaf-install-deps (straight--build-dir "eaf-markdown-previewer"))))

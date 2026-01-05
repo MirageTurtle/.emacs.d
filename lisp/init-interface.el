@@ -6,7 +6,7 @@
 ;;; Code:
 
 (use-package cnfonts
-  :ensure t
+  :straight t
   :init
   (cnfonts-mode 1)
   :config
@@ -18,11 +18,11 @@
   (setq cnfonts-personal-fontnames '(("JetBrains Mono" "LXGW WenKai Mono" "Maple Mono") ("LXGW WenKai Mono"))))
 
 (use-package rainbow-delimiters
-  :ensure t
+  :straight t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package dashboard
-  :ensure t
+  :straight t
   :config
   ;; if dashboard-insert-banner is in the dashboard-startupify-list,
   ;; remove it to avoid showing the banner.

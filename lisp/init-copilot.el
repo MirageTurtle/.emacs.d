@@ -6,11 +6,11 @@
 ;;; Code:
 
 (use-package editorconfig
-  :ensure t)
+  :straight t)
 
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
-  :ensure t
+  :straight t
   :hook
   (prog-mode . mt/copilot-mode)
   :config

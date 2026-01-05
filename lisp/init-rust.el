@@ -8,7 +8,7 @@
 (require 'init-env)
 
 (use-package rust-mode
-  :ensure t
+  :straight t
   :mode ("\\.rs\\'" . rust-mode)
   :config
   :custom

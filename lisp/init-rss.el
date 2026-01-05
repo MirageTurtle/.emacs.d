@@ -2,7 +2,7 @@
 
 ;; use elfeed to read rss feeds
 (use-package elfeed
-  :ensure t
+  :straight t
   :config
   (setq elfeed-feeds
 	'("https://mazzzystar.com/atom.xml"

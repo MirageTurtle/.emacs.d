@@ -7,7 +7,7 @@
 
 ;; Code:
 (use-package typst-ts-mode
-  :ensure t
+  :straight t
   :mode ("\\.typ\\'" . typst-ts-mode)
   :hook
   (typst-ts-mode . show-paren-mode) ; highlight electric pair in Typst mode
