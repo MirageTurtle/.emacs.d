@@ -64,6 +64,13 @@ DOCSTRING and BODY are as in `defun'.
       (shell-command (format "Alacritty --working-directory \"%s\"" dir)))
      (t (message "Unsupported system type")))))
 
+(defun multiply-numbers-seperated-by-comma-in-region (start end multiplier)
+  "Multiply numbers separated by commas in the region from START to END by MULTIPLIER."
+  (interactive "r\nnEnter multiplier: ")
+  (let ((numbers (split-string (buffer-substring-no-properties start end) "," t)))
+    (delete-region start end)
+    (insert (mapconcat (lambda (num) (number-to-string (* (string-to-number num) multiplier))) numbers ","))))
+
 (defun mt/insert-custom-pair (left right)
   "Insert (LEFT RIGHT) to insert-pair-alist"
   ;; get the ASCII values of the characters
