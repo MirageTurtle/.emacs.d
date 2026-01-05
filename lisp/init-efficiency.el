@@ -14,8 +14,6 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-(require 'init-hydra)
-
 (global-hl-line-mode 1) ;; highlight current line
 
 (global-set-key (kbd "M-n") 'scroll-up-command)
@@ -67,6 +65,9 @@
   :bind
   ("C-x o" . ace-window))
 ;; https://github.com/abo-abo/oremacs/blob/a24a45f079a0eaa7f584bc32ce3b33a545f29ff7/keys.el#L256-L287
+(use-package hydra
+  :ensure t
+  :config
 (defhydra hydra-window (:color red
                                :columns nil)
   "window"
@@ -99,7 +100,7 @@
   ("q" nil "cancel")
   ("u" (progn (winner-undo) (setq this-command 'winner-undo)) "undo")
   ("f" nil))
-(global-set-key (kbd "M-o") 'hydra-window/body)
+(global-set-key (kbd "M-o") 'hydra-window/body))
 
 ;; undo-tree
 ;; ~C-x u~ to open undo-tree-visualizer
