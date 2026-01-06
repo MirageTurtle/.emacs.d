@@ -52,7 +52,6 @@
 	 ("C-s" . consult-line)
 	 :map minibuffer-local-map
 	 ("C-r" . consult-history))
-  :hook (after-init . consult-mode)
   :config
   (setq consult-narrow-key "<")
   (setq consult-preview-key 'any)
