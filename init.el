@@ -71,40 +71,7 @@
 
 
 (require 'init-network)
-
-;; (setq package-install-upgrade-built-in t)
-
-;; package
-;; (require 'package)
-(setq package-archives '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-                         ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-                         ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")
-                         ("gnu-devel" . "https://mirrors.ustc.edu.cn/elpa/gnu-devel/")))
-(setq package-check-signature nil)
-;; (setq package-check-signature 'allow-unsigned)
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-;; (package-initialize)
-;; (package-refresh-contents)
-
-;; straight
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-(straight-use-package 'use-package)
-;; (setq straight-use-package-by-default t)
-;; (straight-pull-all)
+(require 'init-straight)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -126,8 +93,6 @@
  ;; If there is more than one, they won't work right.
  '(fringe ((t nil))))
 
-(eval-when-compile
-  (require 'use-package))
 
 (require 'init-env)
 (require 'init-utils)
