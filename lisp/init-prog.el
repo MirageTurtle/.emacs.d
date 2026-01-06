@@ -15,15 +15,18 @@
 
 ;;; Code:
 
+(use-package prog-mode
+  :hook
+  ((prog-mode . show-paren-mode) ; highlight electric pair in program mode
+   ;; (prog-mode . hs-minor-mode) ; fold code block in program mode
+   (prog-mode . display-line-numbers-mode) ; show line numbers in program mode
+   (prog-mode . which-function-mode) ; show current function in mode line
+   ))
+
 (setq-default indent-tabs-mode nil) ; use space instead of tab
 
 (use-package jsonrpc
   :straight (:type built-in))
-
-(add-hook 'prog-mode-hook #'show-paren-mode) ; highlight electric pair in program mode
-(add-hook 'prog-mode-hook #'hs-minor-mode) ; fold code block in program mode
-(add-hook 'prog-mode-hook #'display-line-numbers-mode) ; show line numbers in program mode
-(add-hook 'prog-mode-hook #'which-function-mode) ; show current function in mode line
 
 (use-package reformatter
   :straight t)

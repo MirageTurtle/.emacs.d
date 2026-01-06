@@ -12,13 +12,9 @@
 
 ;; (setq sh-basic-offset 4) ; set sh basic indent to 4 spaces (default is 4)
 
-(unless (assoc 'bash treesit-language-source-alist)
-  (push '(bash . ("https://github.com/tree-sitter/tree-sitter-bash")) treesit-language-source-alist))
-
 ;; set shell-script-mode to use bash-ts-mode
-(setq major-mode-remap-alist
-      '((sh-mode . bash-ts-mode)
-	(shell-script-mode . bash-ts-mode)))
+(add-to-list 'major-mode-remap-alist '(sh-mode . bash-ts-mode))
+(add-to-list 'major-mode-remap-alist '(shell-script-mode . bash-ts-mode))
 
 (provide 'init-bash)
 
