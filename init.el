@@ -134,6 +134,7 @@
 (require 'init-rust)
 (require 'init-typst)
 (require 'init-yaml)
+(require 'init-beancount)
 
 ;; (require 'init-bib)
 
