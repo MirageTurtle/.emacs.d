@@ -106,12 +106,14 @@
 (use-package undo-tree
   :straight t
   :init (global-undo-tree-mode)
+  :diminish undo-tree-mode
   :custom
   (undo-tree-auto-save-history nil))
 
 ;; which-key
 (use-package which-key
   :straight t
+  :diminish which-key-mode
   :init (which-key-mode))
 
 ;; avy
@@ -126,6 +128,7 @@
 
 (use-package yasnippet
   :straight t
+  :diminish yas-minor-mode
   :config
   (yas-global-mode 1))
 
