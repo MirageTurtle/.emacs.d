@@ -1,4 +1,4 @@
-;;; init-git.el --- Git Configuration -*- lexical-binding: t -*-
+;;; init-magit.el --- Git Configuration -*- lexical-binding: t -*-
 ;;; Commentary:
 
 ;;; Code:
@@ -67,6 +67,6 @@ A scope may be provided to a commit's type, to provide additional contextual inf
 
 
 
-(provide 'init-git)
+(provide 'init-magit)
 
-;;; init-git.el ends here
+;;; init-magit.el ends here
