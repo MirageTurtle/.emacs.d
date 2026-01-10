@@ -1,12 +1,5 @@
 ;;; init-utils.el -*- lexical-binding: t; -*-
 
-(defun print-elements-of-list (list)
-  ;; Or maybe use cl-prettyprint?
-  "Print each element of LIST on a line of its own."
-  (while list
-    (print (car list))
-    (setq list (cdr list))))
-
 ;;; https://emacs.stackexchange.com/questions/32150/how-to-add-a-timestamp-to-each-entry-in-emacs-messages-buffer
 (defun mt/ad-timestamp-message (FORMAT-STRING &rest args)
   "Advice to run before `message' that prepends a timestamp to each message.
