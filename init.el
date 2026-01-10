@@ -107,7 +107,8 @@
 (require 'init-tab-bar)
 (require 'init-dired)
 
-(require 'init-git)
+(require 'init-llm)
+(require 'init-git) ; init-git requires init-llm
 (require 'init-theme)
 (require 'init-interface)
 ;; (require 'init-dirvish)
