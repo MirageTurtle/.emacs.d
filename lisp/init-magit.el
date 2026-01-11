@@ -65,7 +65,18 @@ A scope may be provided to a commit's type, to provide additional contextual inf
            (changes (string-join lines "\n")))
       (gptel-request changes :system gptel-commit-prompt))))
 
-
+;; [ssh agent]
+(defvar mt/original-ssh-auth-sock nil
+  "Holds the original SSH_AUTH_SOCK value.")
+(defun mt/set-bitwarden-ssh-agent ()
+  "Set up Bitwarden SSH agent."
+  (interactive)
+  (let ((current-sock (getenv "SSH_AUTH_SOCK"))
+        (bitwarden-sock (expand-file-name "~/.bitwarden/ssh-agent.sock")))
+    (unless (string= current-sock bitwarden-sock)
+      (setenv "SSH_AUTH_SOCK" bitwarden-sock)
+      (setq mt/original-ssh-auth-sock current-sock))
+    (message "Switched to Bitwarden SSH agent.")))
 
 (provide 'init-magit)
 
