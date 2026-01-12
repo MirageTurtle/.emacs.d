@@ -106,6 +106,7 @@
 (require 'init-search)
 (require 'init-tab-bar)
 (require 'init-dired)
+(require 'init-ispell)
 
 (require 'init-llm)
 (require 'init-magit) ; init-magit requires init-llm
