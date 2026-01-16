@@ -40,7 +40,11 @@
 
 ;; eglot
 (use-package eglot
-  :straight t
+  ;; :straight t
+  :straight (eglot :type git
+                   :host nil
+                   :repo "https://mirrors.ustc.edu.cn/emacs.git"
+                   :files ("lisp/progmodes/eglot.el"))
   :after jsonrpc
   :custom-face (eglot-highlight-symbol-face ((t (:underline t :weight bold))))
   :bind (:map eglot-mode-map
