@@ -55,6 +55,8 @@
     "Ensure eglot is enabled if the current buffer is not remote."
     (unless (file-remote-p default-directory)
       (eglot-ensure)))
+  :custom
+  (eglot-autoshutdown t)
   :hook
   ((json-mode jsonc-mode) . mt/eglot-ensure)
   ((js2-mode typescript-mode) . mt/eglot-ensure)
