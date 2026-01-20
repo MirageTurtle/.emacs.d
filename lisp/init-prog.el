@@ -74,6 +74,7 @@
   :straight t
   :hook
   (eglot-managed-mode . eldoc-box-hover-mode)
+  :diminish (eldoc-box-hover-mode eldoc-mode)
   :config
   (setq eldoc-box-show-with-cursor t)
   (setq eldoc-box-show-with-mouse t)
