@@ -31,8 +31,10 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 (straight-use-package 'use-package)
-
-(add-to-list 'straight-built-in-pseudo-packages 'project)
+(defvar mt/straight-ignore-packages
+  '(project))
+(dolist (pkg mt/straight-ignore-packages)
+  (add-to-list 'straight-built-in-pseudo-packages pkg))
 
 ;; [use-package] config
 (eval-when-compile
