@@ -9,7 +9,7 @@
   :straight t)
 
 (use-package copilot
-  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
   :straight t
   :hook
   (prog-mode . mt/copilot-mode)
