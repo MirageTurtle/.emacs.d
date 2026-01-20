@@ -154,6 +154,10 @@
   (setq apheleia-formatters-respect-indent-level t)
   (setq apheleia-mode-lighter " Aphe"))
 
+;; [indent-bars] config
+(use-package indent-bars
+  :straight t)
+
 (provide 'init-prog)
 
 ;;; init-prog.el ends here
