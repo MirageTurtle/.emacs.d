@@ -15,7 +15,6 @@
   (prog-mode . mt/copilot-mode)
   :config
   (setq copilot-indent-offset-warning-disable t)
-  ;; (setq copilot-network-proxy '(:host "127.0.0.1" :port 7890))
   (defun mt/copilot-mode ()
     "Enable copilot mode if the current buffer is not remote."
     (unless (file-remote-p default-directory)

@@ -80,6 +80,27 @@
 	(mt/set-telega-proxy-helper proxy)
       (message "Proxy not found!"))))
 
+(defun mt/set-copilot-proxy (proxy-name)
+  (interactive
+   (list (completing-read "Choose proxy: " (mapcar 'car mt/proxy-alist))))
+  (let ((proxy (cdr (assoc proxy-name mt/proxy-alist))))
+    (if proxy
+	(mt/set-copilot-proxy-helper proxy)
+      (message "Proxy not found!"))))
+
+(defun mt/unset-copilot-proxy ()
+  (interactive)
+  (setq copilot-network-proxy nil))
+
+(defun mt/set-copilot-proxy-helper (proxy)
+  (let* ((proxy-scheme-host-port (mt/get-scheme-host-port-from-proxy proxy))
+         (proxy-scheme (car proxy-scheme-host-port))
+         (proxy-host (cadr proxy-scheme-host-port))
+         (proxy-port (caddr proxy-scheme-host-port))
+         (proxy `(:host ,proxy-host :port ,proxy-port)))
+    (setq copilot-network-proxy (list proxy))
+    (message "copilot proxy set to %s" proxy)))
+
 ;;; unset proxy
 (defun mt/unset-emacs-proxy ()
   "Unset the proxy for Emacs."
