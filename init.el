@@ -68,6 +68,12 @@
       (global-set-key (kbd "s-z") 'undo)
       (global-set-key (kbd "s-x") 'kill-region))
   ())
+(if *is-a-mac*
+    (progn
+      (setq-default process-connection-type nil)
+      (setq-default magit-process-connection-type nil))
+  ())
+
 
 
 (require 'init-network)
