@@ -13,7 +13,7 @@
   ("C-c g" . magit-dispatch)
   ("C-c f" . magit-file-dispatch)
   :config
-  (add-hook 'after-save-hook 'magit-after-save-refresh-status)
+  ;; (add-hook 'after-save-hook 'magit-after-save-refresh-status)
   ;; copied from https://github.com/LuciusChen/.emacs.d/blob/d6246d7abcf4a79e2765767214c7c1c15b03d281/lib/lib-magit.el
   (defconst gptel-commit-prompt
     "The user provides the result of running `git diff --cached`. You suggest a conventional commit message. Don't add anything else to the response. The following describes conventional commits.
