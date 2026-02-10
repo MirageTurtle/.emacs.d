@@ -10,11 +10,12 @@
 ;;; Code:
 
 ;; emt: Emacs MacOS Tokenizer
-(use-package emt
-  :straight (:host github :repo "roife/emt"
-                   :files ("*.el" "module/*" "module"))
-  :diminish emt-mode
-  :hook (after-init . emt-mode))
+(if *is-a-mac*
+    (use-package emt
+      :straight (:host github :repo "roife/emt"
+                       :files ("*.el" "module/*" "module"))
+      :diminish emt-mode
+      :hook (after-init . emt-mode)))
 
 ;; https://github.com/LuciusChen/.emacs.d/blob/61241953d3cf1e5b4d1ca0559717d8a55b12543c/lib/lib-meow.el#L5-L41
 (defun meow-mark-word-or-chinese (n)
@@ -137,7 +138,6 @@ Use a negative argument to create a backward selection."
      '("u" . meow-undo)
      '("U" . meow-undo-in-selection)
      '("v" . meow-visit)
-     ;; '("w" . meow-mark-word)
      (if *is-a-mac*
 	 '("w" . meow-mark-word-or-chinese)
        '("w" . meow-mark-word))
