@@ -82,10 +82,10 @@
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; marginalia
-(use-package marginalia
-  :straight t
-  :hook (vertico-mode . marginalia-mode)
-  :bind (:map minibuffer-local-map
-	      ("M-a" . marginalia-cycle)))
+;; (use-package marginalia
+;;   :straight t
+;;   :hook (vertico-mode . marginalia-mode)
+;;   :bind (:map minibuffer-local-map
+;; 	      ("M-a" . marginalia-cycle)))
 
 (provide 'init-completion)
