@@ -37,4 +37,13 @@
 
 (remove-hook 'find-file-hook #'doom-modeline-update-buffer-file-name)
 
+(use-package tramp-rpc
+  :straight (tramp-rpc :type git :host github :repo "ArthurHeymans/emacs-tramp-rpc" :file "lisp/*.el")
+  :after tramp
+  :defer t)
+(straight-use-package 'msgpack)
+(add-to-list 'load-path "~/.emacs.d/mtmp/emacs-tramp-rpc/lisp")
+(with-eval-after-load 'tramp
+  (require 'tramp-rpc))
+
 (provide 'init-tramp)
