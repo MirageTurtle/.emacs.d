@@ -115,7 +115,7 @@
 
 (defvar mt/default-mode-alist
   (list
-   '("\\.js\\'" . js2-mode)
+   '("\\.js\\'" . js-mode)
    '("\\.jsx\\'" . js2-mode)
    '("\\.ts\\'" . typescript-mode)
    '("\\.tsx\\'" . typescript-mode)
