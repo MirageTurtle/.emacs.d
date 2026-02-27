@@ -18,7 +18,7 @@
   (defconst gptel-commit-prompt
     "The user provides the result of running `git diff --cached`. You suggest a conventional commit message. Don't add anything else to the response. The following describes conventional commits.
 
-# Conventional Commits 1.0.0
+# Conventional Commits 1.1.0
 
 ## Summary
 
