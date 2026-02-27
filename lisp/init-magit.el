@@ -28,6 +28,12 @@ which makes it easier to write automated tools on top of.
 This convention dovetails with [SemVer](http://semver.org),
 by describing the features, fixes, and breaking changes made in commit messages.
 
+The commit message must:
+
+1. Follow the structure below
+2. Be no more than 50 characters
+3. Not end with a period
+
 The commit message should be structured as follows:
 
 ---
