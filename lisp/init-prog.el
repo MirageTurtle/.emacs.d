@@ -153,7 +153,23 @@
   (apheleia-global-mode +1)
   (setq apheleia-remote-algorithm "remote")
   (setq apheleia-formatters-respect-indent-level t)
-  (setq apheleia-mode-lighter " Aphe"))
+  (setq apheleia-mode-lighter " Aphe")
+  (setf (alist-get 'shfmt apheleia-formatters)
+        '("shfmt"
+          "-filename" filepath
+          "-ci"
+          "-ln" (cl-case (bound-and-true-p sh-shell)
+                  (sh "posix")
+                  (t "bash"))
+          (when apheleia-formatters-respect-indent-level
+            (format
+             "--indent=%d"
+             (cond
+              (indent-tabs-mode 0)
+              ((boundp 'sh-basic-offset)
+               sh-basic-offset)
+              (t 4))))
+          "-")))
 
 ;; [indent-bars] config
 (use-package indent-bars
