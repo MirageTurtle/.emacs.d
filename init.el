@@ -143,6 +143,7 @@
 (require 'init-typst)
 (require 'init-yaml)
 (require 'init-beancount)
+(require 'init-mermaid)
 
 ;; (require 'init-bib)
 
