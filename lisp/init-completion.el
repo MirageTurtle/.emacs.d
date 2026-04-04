@@ -20,7 +20,7 @@
               ("TAB" . minibuffer-complete)
               ("<tab>" . minibuffer-complete)
               ("C-<return>" . vertico-insert)
-              ("C-, ." . vertico-quick-jump))
+              ("C-, ;" . vertico-quick-jump))
   :hook ((after-init . vertico-mode))
   :after (consult)
   :defines (crm-separator)
@@ -41,6 +41,11 @@
   (setq org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps nil)
   )
+
+(use-package embark
+  :straight t
+  :bind (("C-." . embark-act)
+         ("C-," . embark-dwim)))
 
 (use-package consult
   :straight t
