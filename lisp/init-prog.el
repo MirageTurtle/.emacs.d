@@ -38,55 +38,6 @@
   :config
   (setq dape-buffer-window-arrangement 'right))
 
-;; eglot
-(use-package eglot
-  ;; :straight t
-  :straight (eglot :type git
-                   :host nil
-                   :repo "https://mirrors.ustc.edu.cn/emacs.git"
-                   :files ("lisp/progmodes/eglot.el"))
-  :after jsonrpc
-  :custom-face (eglot-highlight-symbol-face ((t (:underline t :weight bold))))
-  :bind (:map eglot-mode-map
-              ("M-<return>" . eglot-code-actions))
-  :config
-  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
-  (defun mt/eglot-ensure ()
-    "Ensure eglot is enabled if the current buffer is not remote."
-    (unless (file-remote-p default-directory)
-      (eglot-ensure)))
-  :custom
-  (eglot-autoshutdown t)
-  :hook
-  ((json-mode jsonc-mode) . mt/eglot-ensure)
-  ((js2-mode typescript-mode) . mt/eglot-ensure)
-  ((python-ts-mode) . mt/eglot-ensure)
-  ((sh-mode bash-ts-mode) . mt/eglot-ensure)
-  ((rust-mode) . mt/eglot-ensure)
-  ((go-mode) . mt/eglot-ensure)
-  ((c-mode) . mt/eglot-ensure)
-  ((nix-mode) . mt/eglot-ensure))
-
-
-;; eldoc-box
-(use-package eldoc-box
-  :straight (:type git :host github :repo "casouri/eldoc-box")
-  :straight t
-  :hook
-  (eglot-managed-mode . eldoc-box-hover-mode)
-  :diminish (eldoc-box-hover-mode eldoc-mode)
-  :config
-  (setq eldoc-box-show-with-cursor t)
-  (setq eldoc-box-show-with-mouse t)
-  (setq eldoc-box-border-color "#4f5b93")
-  (setq eldoc-box-minibuffer t))
-
-;; flymake
-(use-package flymake
-  :bind
-  (:map flymake-mode-map
-	("M-s-j" . flymake-goto-next-error)
-	("M-s-k" . flymake-goto-prev-error)))
 
 ;; set the default mode for some file types
 ;; for every file type, if it is not in auto-mode-alist,

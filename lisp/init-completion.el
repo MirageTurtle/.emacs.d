@@ -57,22 +57,6 @@
   (setq consult-preview-key 'any)
   (setq completion-styles '(orderless)))
 
-;; corfu
-(use-package corfu
-  :straight t
-  :init
-  (global-corfu-mode)
-  (corfu-popupinfo-mode)
-  :custom
-  (corfu-auto t) ;; enable auto completion
-  (corfu-cycle t) ;; enable cycling for `corfu-next' and `corfu-previous'
-  (corfu-preview-current nil) ;; disable current candidate preview
-  (corfu-preselect 'prompt)   ;; preselect the prompt
-  (corfu-on-exact-match nil) ;; do not complete on exact match
-  (corfu-scroll-margin 10)     ;; set scroll margin
-  (corfu-auto-prefix 2)      ;; start completing after 2 characters
-  )
-
 ;; orderless
 (use-package orderless
   :demand t

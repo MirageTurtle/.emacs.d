@@ -19,8 +19,7 @@
   :config
   (setenv "WORKON_HOME" (expand-file-name "~/Documents/venv"))
   ;; (setq python-shell-interpreter "python3")
-  (pyvenv-mode t)
-  (pyvenv-activate (expand-file-name "~/Documents/venv/base")))
+  (pyvenv-mode t))
 
 ;; for lsp-bridge
 (defun local/lsp-bridge-get-single-lang-server-by-project (project-path filepath)
@@ -40,16 +39,11 @@
 
     custom-config))
 
-;; (add-hook 'python-mode-hook (lambda () (setq-local lsp-bridge-get-single-lang-server-by-project 'local/lsp-bridge-get-single-lang-server-by-project)))
+(add-hook 'python-mode-hook (lambda () (setq-local lsp-bridge-get-single-lang-server-by-project 'local/lsp-bridge-get-single-lang-server-by-project)))
 
-;; (add-hook 'pyvenv-post-activate-hooks
-;;           (lambda ()
-;;             (lsp-bridge-restart-process)))
 (add-hook 'pyvenv-post-activate-hooks
-	  (lambda ()
-	    ;; call eglot interactively to restart server
-            (call-interactively 'eglot)
-	    (python-mode)))
+          (lambda ()
+            (lsp-bridge-restart-process)))
 
 ;; ein is a juptyer notebook client
 (use-package ein

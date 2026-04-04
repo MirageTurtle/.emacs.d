@@ -122,11 +122,9 @@
 
 (require 'init-atomic-chrome)
 
-;; (require 'init-lsp-bridge)
 (require 'init-treesit)
 
 (require 'init-prog)
-;; (require 'init-emigo)
 (require 'init-bash)
 (require 'init-copilot)
 (require 'init-c)
@@ -144,6 +142,7 @@
 (require 'init-yaml)
 (require 'init-beancount)
 (require 'init-mermaid)
+(require 'init-lsp-bridge)
 
 ;; (require 'init-bib)
 
