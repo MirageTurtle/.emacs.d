@@ -28,11 +28,11 @@ Authinfo fields mapping:
   :custom
   (gptel-backend
    (apply #'gptel-make-openai
-          "claude-sonnet-4-20250514-magit"
-          :endpoint "/v1/chat/completions"
-          :models '(claude-sonnet-4-20250514)
+          "deepseek-magit"
+          :endpoint "/chat/completions"
+          :models '(deepseek-chat)
           :stream t
-          (mt/gptel-backend-plist-from-authinfo "claude-sonnet-4-20250514-magit"))))
+          (mt/gptel-backend-plist-from-authinfo "lw-deepseek-magit"))))
 
 (provide 'init-llm)
 ;;; init-llm.el ends here
