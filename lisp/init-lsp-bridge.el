@@ -33,6 +33,8 @@
   (setq lsp-bridge-enable-hover-diagnostic t)
   (setq lsp-bridge-enable-document-highlight t)
   (setq lsp-bridge-enable-diagnostics t)
+  (setq lsp-bridge-enable-inlay-hint t)
+  (setq lsp-bridge-symbols-enable-which-func t)
   )
 
 ;; Some Issue
