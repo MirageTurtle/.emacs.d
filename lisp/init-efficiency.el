@@ -62,7 +62,9 @@
 (use-package ace-window
   :straight t
   :bind
-  ("C-x o" . ace-window))
+  ("C-x o" . ace-window)
+  :custom
+  (aw-scope 'frame))
 ;; https://github.com/abo-abo/oremacs/blob/a24a45f079a0eaa7f584bc32ce3b33a545f29ff7/keys.el#L256-L287
 (use-package hydra
   :straight t
