@@ -4,6 +4,7 @@
 (require 'init-prog)
 (require 'treesit)
 
+;; remember run `treesit-install-language-grammar' to install the grammar for the language you want to use.
 (use-package treesit-fold
   :straight (treesit-fold :type git :host github :repo "emacs-tree-sitter/treesit-fold")
   :after treesit
@@ -17,6 +18,7 @@
           (go         . ("https://github.com/tree-sitter/tree-sitter-go"))
           (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod"))
           (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+          (json       . ("https://github.com/tree-sitter/tree-sitter-json"))
           (python     . ("https://github.com/tree-sitter/tree-sitter-python"))
           (rust       . ("https://github.com/tree-sitter/tree-sitter-rust"))
           (toml       . ("https://github.com/tree-sitter/tree-sitter-toml"))

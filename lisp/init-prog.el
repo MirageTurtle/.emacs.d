@@ -70,7 +70,7 @@
    '("\\.jsx\\'" . js2-mode)
    '("\\.ts\\'" . typescript-mode)
    '("\\.tsx\\'" . typescript-mode)
-   '("\\.json\\'" . json-mode)
+   '("\\.json\\'" . json-ts-mode)
    '("\\.jsonc\\'" . jsonc-mode)
    '("\\.html\\'" . html-mode)
    '("\\.css\\'" . css-mode)
