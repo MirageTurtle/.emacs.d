@@ -89,7 +89,10 @@
    '("\\.rs\\'" . rust-mode)
    '("\\.lua\\'" . lua-mode)
    '("\\.sql\\'" . sql-mode)
-   '("\\.cu\\'" . c++-mode))
+   '("\\.cu\\'" . c++-mode)
+   '("\\.hpp\\'" . c++-mode)
+   '("\\.h\\'" . c-mode)
+   '("\\.cuh\\'" . c-mode))
   "List of default mode for file types.")
 
 (dolist (pair mt/default-mode-alist)
@@ -105,6 +108,7 @@
   (setq apheleia-remote-algorithm "remote")
   (setq apheleia-formatters-respect-indent-level t)
   (setq apheleia-mode-lighter " Aphe")
+  (setq yaml-indent-offset 2)
   (setf (alist-get 'shfmt apheleia-formatters)
         '("shfmt"
           "-filename" filepath
