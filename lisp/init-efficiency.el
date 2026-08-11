@@ -9,6 +9,8 @@
 ;;   remove hydra to an independent file;
 ;;   change the setting of ace-window with hydra;
 ;;   add yasnippet;
+;; 2026-08-11:
+;;   remove multi-cursor
 
 ;;; Code:
 
@@ -47,15 +49,8 @@
 (global-set-key (kbd "C-x 2") 'mt/split-window-below)
 (global-set-key (kbd "C-x 3") 'mt/split-window-right)
 
-;; multi-cursor
 ;; https://emacs-china.org/t/meow/15679 says meow could replace multiple-cursor,
-;; so I may remove it in the future.
-(use-package multiple-cursors
-  :straight t
-  :bind
-  ("C->" . mc/mark-next-like-this)
-  ("C-<" . mc/mark-previous-like-this)
-  ("C-c C-<" . mc/mark-all-like-this))
+;; so I removed multi-cursor.
 
 ;; ace-window
 ;; ace-window is a very great package to switch windows.
