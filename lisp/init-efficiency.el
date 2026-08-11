@@ -21,6 +21,10 @@
 (global-set-key (kbd "M-n") 'scroll-up-command)
 (global-set-key (kbd "M-p") 'scroll-down-command)
 
+;; Use ripgrep for the built-in project/xref tools
+(setq xref-search-program 'ripgrep)
+
+
 ;; amx is an alternative to smex
 ;; (use-package amx
 ;;   :straight t
