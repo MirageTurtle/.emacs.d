@@ -6,18 +6,19 @@
   "Return a plist usable by `gptel-make-*' from authinfo MACHINE.
 
 Authinfo fields mapping:
-  user  → :host
+  machine       → lookup key
+  login         → :host
   password      → :key"
   (let* ((auth-sources '("~/.authinfo.gpg"))
          (auth (car (auth-source-search
-                     :machine machine
+                     :host machine
                      :max 1
                      :require '(:user :secret)))))
     (unless auth
       (error "No authinfo entry for machine %S" machine))
     (let ((plist (list
                   :host (plist-get auth :user)
-                  :key  (funcall (plist-get auth :secret)))))
+                  :key  (plist-get auth :secret))))
       (when-let ((endpoint (plist-get auth :port)))
         (setq plist (plist-put plist :endpoint endpoint)))
       plist)))
@@ -27,12 +28,18 @@ Authinfo fields mapping:
   :defer t
   :custom
   (gptel-backend
+   ;; (apply #'gptel-make-openai
+   ;;        "deepseek-magit"
+   ;;        :endpoint "/chat/completions"
+   ;;        :models '(deepseek-chat)
+   ;;        :stream t
+   ;;        (mt/gptel-backend-plist-from-authinfo "mt-deepseek-magit"))
    (apply #'gptel-make-openai
-          "deepseek-magit"
-          :endpoint "/chat/completions"
-          :models '(deepseek-chat)
+          "vertsineu-qwen-magit"
+          :endpoint "/v1/chat/completions"
+          :models '(qwen3.8-27b)
           :stream t
-          (mt/gptel-backend-plist-from-authinfo "lw-deepseek-magit"))))
+          (mt/gptel-backend-plist-from-authinfo "vertsineu-qwen-magit"))))
 
 (provide 'init-llm)
 ;;; init-llm.el ends here
