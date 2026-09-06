@@ -85,6 +85,10 @@ A scope may be provided to a commit's type, to provide additional contextual inf
       (setq mt/original-ssh-auth-sock current-sock))
     (message "Switched to Bitwarden SSH agent.")))
 
+(use-package magit-delta
+  :straight t
+  :hook (magit-mode . magit-delta-mode))
+
 (provide 'init-magit)
 
 ;;; init-magit.el ends here
