@@ -28,18 +28,20 @@ Authinfo fields mapping:
   :defer t
   :custom
   (gptel-backend
-   ;; (apply #'gptel-make-openai
-   ;;        "deepseek-magit"
-   ;;        :endpoint "/chat/completions"
-   ;;        :models '(deepseek-chat)
-   ;;        :stream t
-   ;;        (mt/gptel-backend-plist-from-authinfo "mt-deepseek-magit"))
    (apply #'gptel-make-openai
-          "vertsineu-qwen-magit"
-          :endpoint "/v1/chat/completions"
-          :models '(qwen3.8-27b)
+          "deepseek-magit"
+          :endpoint "/chat/completions"
+          :models '(deepseek-chat)
           :stream t
-          (mt/gptel-backend-plist-from-authinfo "vertsineu-qwen-magit"))))
+          (mt/gptel-backend-plist-from-authinfo "mt-deepseek-magit"))
+   ;; (apply #'gptel-make-openai
+   ;;        "vertsineu-qwen-magit"
+   ;;        :endpoint "/v1/chat/completions"
+   ;;        :models '(qwen3.8-reasoner)
+   ;;        :stream t
+   ;;        :request-params '(:chat_template_kwargs ((enable_thinking . :json-false)))
+   ;;        (mt/gptel-backend-plist-from-authinfo "vertsineu-qwen-magit"))
+   ))
 
 (provide 'init-llm)
 ;;; init-llm.el ends here
