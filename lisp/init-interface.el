@@ -56,6 +56,17 @@
 (defalias 'scroll-up-command 'pixel-scroll-interpolate-down)
 (defalias 'scroll-down-command 'pixel-scroll-interpolate-up)
 
+;; ligature.el
+(use-package ligature
+  :straight t
+  :config
+  (ligature-set-ligatures 'prog-mode
+                          '("-->" "//" "/**" "/*" "*/" "<!--" "-<<" "-<" "-<-" "<--" "<-<"
+                            "<<-" "<->" "->" "->>" ">-" ">>-" "-->>" "->>-" "==" "===" "!="
+                            "!==" ">=" "<=" "&&" "||" "::" ":::" ":=" "..." ".."
+                            "?." "?:" "~~" "~>" "~~>" "==>" "=>>" "|>" "<|" "<|>" "<=>"))
+  (global-ligature-mode t))
+
 (provide 'init-interface)
 
 ;;; init-interface.el ends here
