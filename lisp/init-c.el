@@ -15,4 +15,6 @@
   :config
   (setq clang-format-style "file"))
 
+(add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
+
 (provide 'init-c)
