@@ -31,7 +31,7 @@
   (setq dashboard-projects-backend 'project-el)
   ;; (setq dashboard-startup-banner 'logo)
   (setq dashboard-items '((recents  . 30)
-			  (bookmarks . 5)
+			  (bookmarks . 10)
 			  (agenda . 5)
 			  (projects . 10)))
   (setq dashboard-filter-agenda-entry 'dashboard-filter-agenda-by-time)
