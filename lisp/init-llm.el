@@ -2,46 +2,50 @@
 
 (require 'auth-source)
 
-(defun mt/gptel-backend-plist-from-authinfo (machine)
-  "Return a plist usable by `gptel-make-*' from authinfo MACHINE.
-
-Authinfo fields mapping:
-  machine       → lookup key
-  login         → :host
-  password      → :key"
+(defun mt/authinfo-secret (machine)
+  "Return the secret stored for authinfo MACHINE."
   (let* ((auth-sources '("~/.authinfo.gpg"))
          (auth (car (auth-source-search
                      :host machine
                      :max 1
-                     :require '(:user :secret)))))
+                     :require '(:secret)))))
     (unless auth
       (error "No authinfo entry for machine %S" machine))
-    (let ((plist (list
-                  :host (plist-get auth :user)
-                  :key  (plist-get auth :secret))))
-      (when-let ((endpoint (plist-get auth :port)))
-        (setq plist (plist-put plist :endpoint endpoint)))
-      plist)))
+    (plist-get auth :secret)))
 
-(use-package gptel
-  :straight (gptel :type git :host github :repo "karthink/gptel")
+(defun mt/make-vertsineu-qwen-provider (key)
+  "Create the VertSineu Qwen provider using KEY."
+  (make-llm-openai-compatible
+   :url "https://api.vertsineu.top/v1/"
+   :key key
+   :chat-model "qwen3.8-27b"
+   :default-chat-non-standard-params
+   '(("chat_template_kwargs"
+      . ((enable_thinking . :false)
+         (terse . :false))))))
+
+(defun mt/llm-make-developer-prompt (developer-prompt user-prompt)
+  "Create an LLM prompt from DEVELOPER-PROMPT and USER-PROMPT."
+  (make-llm-chat-prompt
+   :interactions
+   (list (make-llm-chat-prompt-interaction
+          :role 'developer
+          :content developer-prompt)
+         (make-llm-chat-prompt-interaction
+          :role 'user
+          :content user-prompt))))
+
+(defvar mt/llm-commit-provider nil
+  "LLM provider used to generate commit messages.")
+
+(use-package llm
+  :straight (:type git :host github :repo "ahyatt/llm")
   :defer t
-  :custom
-  (gptel-backend
-   (apply #'gptel-make-openai
-          "deepseek-magit"
-          :endpoint "/chat/completions"
-          :models '(deepseek-chat)
-          :stream t
-          (mt/gptel-backend-plist-from-authinfo "mt-deepseek-magit"))
-   ;; (apply #'gptel-make-openai
-   ;;        "vertsineu-qwen-magit"
-   ;;        :endpoint "/v1/chat/completions"
-   ;;        :models '(qwen3.8-reasoner)
-   ;;        :stream t
-   ;;        :request-params '(:chat_template_kwargs ((enable_thinking . :json-false)))
-   ;;        (mt/gptel-backend-plist-from-authinfo "vertsineu-qwen-magit"))
-   ))
+  :config
+  (require 'llm-openai)
+  (setq mt/llm-commit-provider
+        (mt/make-vertsineu-qwen-provider
+         (mt/authinfo-secret "vertsineu-qwen-magit"))))
 
 (provide 'init-llm)
 ;;; init-llm.el ends here

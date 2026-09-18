@@ -15,7 +15,7 @@
   :config
   ;; (add-hook 'after-save-hook 'magit-after-save-refresh-status)
   ;; copied from https://github.com/LuciusChen/.emacs.d/blob/d6246d7abcf4a79e2765767214c7c1c15b03d281/lib/lib-magit.el
-  (defconst gptel-commit-prompt
+  (defconst llm-commit-prompt
     "The user provides the result of running `git diff --cached`. You suggest a conventional commit message. Don't add anything else to the response. The following describes conventional commits.
 
 # Conventional Commits 1.1.0
@@ -63,14 +63,32 @@ Additional types are not mandated by the Conventional Commits specification, and
 <br /><br />
 A scope may be provided to a commit's type, to provide additional contextual information and is contained within parenthesis, e.g., `feat(parser): add ability to parse arrays`.")
 
-  (defun gptel-commit ()
-    "Generate commit message with gptel and insert it into the buffer."
+  (defun llm-commit ()
+    "Generate a commit message with `llm' and insert it at point."
     (interactive)
     (require 'init-llm)
-    (require 'gptel)
+    (require 'llm)
     (let* ((lines (magit-git-lines "diff" "--cached"))
-           (changes (string-join lines "\n")))
-      (gptel-request changes :system gptel-commit-prompt))))
+           (changes (string-join lines "\n"))
+           (prompt (mt/llm-make-developer-prompt
+                    llm-commit-prompt changes))
+           (buffer (current-buffer))
+           (position (copy-marker (point) t)))
+      (llm-chat-async
+       mt/llm-commit-provider
+       prompt
+       (lambda (response)
+         (unwind-protect
+             (when (buffer-live-p buffer)
+               (with-current-buffer buffer
+                 (save-excursion
+                   (goto-char position)
+                   (insert (string-trim response)))))
+           (set-marker position nil)))
+       (lambda (type message)
+         (set-marker position nil)
+         (message "Commit message generation failed (%s): %s"
+                  type message))))))
 
 ;; [ssh agent]
 (defvar mt/original-ssh-auth-sock nil
