@@ -3,6 +3,11 @@
 
 ;;; Code:
 
+(with-eval-after-load 'project
+  (keymap-set project-prefix-map "m" #'magit-project-status)
+  (add-to-list 'project-switch-commands
+               '(magit-project-status "Magit") t))
+
 (use-package transient
   :straight t)
 
