@@ -41,6 +41,8 @@
 (use-package llm
   :straight (:type git :host github :repo "ahyatt/llm")
   :defer t
+  :init
+  (setq llm-warn-on-nonfree nil)
   :config
   (require 'llm-openai)
   (setq mt/llm-commit-provider
