@@ -49,5 +49,8 @@
         (mt/make-vertsineu-qwen-provider
          (mt/authinfo-secret "vertsineu-qwen-magit"))))
 
+(use-package reviewer
+  :straight (reviewer :type git :host github :repo "SreenivasVRao/reviewer.el"))
+
 (provide 'init-llm)
 ;;; init-llm.el ends here
