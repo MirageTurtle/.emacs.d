@@ -46,6 +46,13 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-'") nil))
 
+;; org-babel languages
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (shell . t))))
+
 ;; pretty leading stars of headings
 (use-package org-superstar
   :straight t
