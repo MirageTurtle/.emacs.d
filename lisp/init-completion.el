@@ -22,7 +22,6 @@
               ("C-<return>" . vertico-insert)
               ("C-, ;" . vertico-quick-jump))
   :hook ((after-init . vertico-mode))
-  :after (consult)
   :defines (crm-separator)
   :config
   (setq vertico-cycle t

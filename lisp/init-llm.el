@@ -50,7 +50,18 @@
          (mt/authinfo-secret "vertsineu-qwen-magit"))))
 
 (use-package reviewer
-  :straight (reviewer :type git :host github :repo "SreenivasVRao/reviewer.el"))
+  :straight (reviewer :type git :host github :repo "SreenivasVRao/reviewer.el")
+  ;; only `reviewer-transient' and the modes are autoloaded upstream
+  :commands (reviewer-annotate
+             reviewer-clear-annotations
+             reviewer-delete-annotation-at-point
+             reviewer-delete-region-annotations
+             reviewer-show-annotation-at-point
+             reviewer-render-next-annotation
+             reviewer-render-previous-annotation
+             reviewer-render
+             reviewer-yank-render
+             reviewer-yank-render-file-name))
 
 (provide 'init-llm)
 ;;; init-llm.el ends here

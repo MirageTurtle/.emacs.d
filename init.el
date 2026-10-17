@@ -120,8 +120,6 @@
 (require 'init-interface)
 ;; (require 'init-dirvish)
 
-(require 'init-atomic-chrome)
-
 (require 'init-treesit)
 
 (require 'init-prog)

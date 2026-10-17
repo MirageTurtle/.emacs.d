@@ -6,7 +6,8 @@
 ;;; Code:
 
 (use-package editorconfig
-  :straight t)
+  :straight t
+  :defer t)
 
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))

@@ -35,6 +35,7 @@
 (use-package dape
   ;; require jsonrpc >= 1.0.24, I use 1.0.25
   :straight t
+  :commands (dape)
   :config
   (setq dape-buffer-window-arrangement 'right))
 
@@ -130,7 +131,8 @@
 
 ;; [indent-bars] config
 (use-package indent-bars
-  :straight t)
+  :straight t
+  :defer t)
 
 (provide 'init-prog)
 

@@ -30,11 +30,10 @@
 (setq org-todo-keywords '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "CANC(c)")))
 
 ;; ..., =...=, inline-src, src block (multiline too)
-(require 'org)
-(require 'org-element)
 (defun mt/org-copy-command-at-point ()
   "Copy contents of verbatim, code, inline-src or src block at point."
   (interactive)
+  (require 'org-element)
   (let* ((el (org-element-context))
          (type (org-element-type el))
          (val (and (memq type '(verbatim code inline-src-block src-block))

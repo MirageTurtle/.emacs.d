@@ -3,7 +3,8 @@
 ;;; Code:
 
 (use-package rg
-  :straight t)
+  :straight t
+  :defer t)
 
 
 (provide 'init-search)

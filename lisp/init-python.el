@@ -16,10 +16,11 @@
 ;; virtual env
 (use-package pyvenv
   :straight t
-  :config
+  :hook (python-base-mode . pyvenv-mode)
+  :init
   (setenv "WORKON_HOME" (expand-file-name "~/Documents/venv"))
   ;; (setq python-shell-interpreter "python3")
-  (pyvenv-mode t))
+  )
 
 ;; for lsp-bridge
 (defun local/lsp-bridge-get-single-lang-server-by-project (project-path filepath)
@@ -47,19 +48,21 @@
 
 ;; ein is a juptyer notebook client
 (use-package ein
-  :straight t)
+  :straight t
+  :defer t)
 
-(add-to-list 'dape-configs
-             `(debugpy
-               modes (python-mode python-ts-mode)
-               command "python3"
-               command-args ("-m" "debugpy.adapter")
-               :type "executable"
-               :request "launch"
-               :cwd dape-cwd
-               :program dape-buffer-default
-               :args []
-               :env ()))
+(with-eval-after-load 'dape
+  (add-to-list 'dape-configs
+               `(debugpy
+                 modes (python-mode python-ts-mode)
+                 command "python3"
+                 command-args ("-m" "debugpy.adapter")
+                 :type "executable"
+                 :request "launch"
+                 :cwd dape-cwd
+                 :program dape-buffer-default
+                 :args []
+                 :env ())))
 
 ;; formatter package: apheleia
 (use-package apheleia

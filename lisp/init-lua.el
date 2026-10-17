@@ -1,7 +1,8 @@
 ;;; init-lua.el -*- lexical-binding: t; -*-
 
 (use-package lua-mode
-  :straight t)
+  :straight t
+  :defer t)
 
 (provide 'init-lua)
 

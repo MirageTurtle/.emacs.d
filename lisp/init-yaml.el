@@ -1,13 +1,12 @@
 ;;; init-yaml.el -*- lexical-binding: t; -*-
 
 (use-package yaml-mode
-  :straight t)
+  :straight t
+  :defer t)
 
 (use-package yaml-pro
   :straight t
-  ;; :after (yaml-mode)
-  :config
-  (add-hook 'yaml-mode-hook #'yaml-pro-mode))
+  :hook (yaml-mode . yaml-pro-mode))
 
 (provide 'init-yaml)
 

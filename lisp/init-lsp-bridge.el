@@ -7,18 +7,21 @@
 ;;; Code:
 
 (use-package markdown-mode
-  :straight t)
+  :straight t
+  :defer t)
 
 (use-package lsp-bridge
   :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
                          :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                          :build (:not compile))
   :init
-  (global-lsp-bridge-mode)
+  ;; Enable for non-prog modes in `lsp-bridge-default-mode-hooks' (yaml, markdown, org, ...)
+  ;; once idle, so loading lsp-bridge (~0.2s) stays off the startup path.
+  (run-with-idle-timer 1 nil #'global-lsp-bridge-mode)
   :hook
   ((prog-mode . lsp-bridge-mode))
   :bind
-  (:map lsp-bridge-mode
+  (:map lsp-bridge-mode-map
 	("M-s-j" . lsp-bridge-diagnostic-jump-next)
 	("M-s-k" . lsp-bridge-diagnostic-jump-prev)
 	("M-s-n" . lsp-bridge-popup-documentation-scroll-up)
@@ -28,7 +31,6 @@
   (setq lsp-bridge-python-lsp-server 'ty)
   (setq lsp-bridge-python-multi-lsp-server 'ty_ruff)
   (setq lsp-bridge-python-command (expand-file-name "~/Documents/venv/emacs-python/bin/python3"))
-  (setq lsp-bridge-default-mode-hooks '(copilot-mode))
   (setq lsp-bridge-popup-documentation t)
   (setq lsp-bridge-enable-hover-diagnostic t)
   (setq lsp-bridge-enable-document-highlight t)

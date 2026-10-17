@@ -9,7 +9,8 @@
                '(magit-project-status "Magit") t))
 
 (use-package transient
-  :straight t)
+  :straight t
+  :defer t)
 
 (use-package magit
   :straight t
