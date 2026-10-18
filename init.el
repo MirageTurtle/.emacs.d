@@ -31,6 +31,7 @@
 (global-auto-revert-mode t) ; emacs fresh buffer automatically if the file is edited in another place
 (delete-selection-mode t) ; replace text in selection mode
 (setq inhibit-startup-message t) ; no emacs hello face
+(setq initial-major-mode 'fundamental-mode) ; keep prog-mode hooks (copilot, lsp-bridge, ...) off *scratch*
 (setq make-backup-files nil) ; no backup files
 (global-display-line-numbers-mode -1) ; show column number in window
 (tool-bar-mode -1) ; no tool bar
