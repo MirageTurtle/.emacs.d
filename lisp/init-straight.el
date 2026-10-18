@@ -8,11 +8,7 @@
       comp-deferred-compilation-deny-list ()                 ; config native comp
       warning-suppress-log-types '((comp))                   ; Don't display comp warnings
       straight-disable-native-compile (not (and (fboundp 'native-comp-available-p)
-                                                (native-comp-available-p)))
-      straight-recipe-repositories '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-                                     ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-                                     ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")
-                                     ("gnu-devel" . "https://mirrors.ustc.edu.cn/elpa/gnu-devel/")))
+                                                (native-comp-available-p))))
 
 ;; installation
 (defvar bootstrap-version)
