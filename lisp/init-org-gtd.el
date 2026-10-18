@@ -5,6 +5,9 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 (add-hook 'org-mode-hook 'visual-line-mode)
 
+;; Only load cheap link modules; the defaults pull in Gnus, eww and doc-view (~0.8s)
+(setq org-modules '(ol-doi ol-info))
+
 
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c C-w") 'org-refile)
