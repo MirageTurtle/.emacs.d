@@ -15,9 +15,8 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (setq org-agenda-start-on-weekday 0) ;; start on Sunday
 
-(setq org-agenda-files '("~/gtd/inbox.org"
-                         "~/gtd/gtd.org"
-                         "~/gtd/tickler.org"))
+(setq org-agenda-files
+      (seq-filter #'file-exists-p '("~/gtd/inbox.org" "~/gtd/gtd.org" "~/gtd/tickler.org")))
 
 (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                (file+headline "~/gtd/inbox.org" "Tasks")
