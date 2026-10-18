@@ -10,6 +10,9 @@
 
 (setq package-enable-at-startup nil)
 
+;; Avoid GC during startup; `init.el' restores the threshold once idle
+(setq gc-cons-threshold most-positive-fixnum)
+
 (message "early-init.el loaded")
 
 ;; So we can detect this having been loaded

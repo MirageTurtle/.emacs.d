@@ -17,13 +17,13 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst *is-a-linux* (eq system-type 'gnu/linux))
 
-;; Adjust garbage collection thresholds during startup
+;; GC is disabled during startup in `early-init.el'; restore the threshold
+;; once idle so the first collection runs after the frame is drawn.
 ;; Perhaps consider to use `gcmh' package
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (run-with-idle-timer 1 nil
+                                 (lambda () (setq gc-cons-threshold (* 20 1024 1024))))))
 
 (setq confirm-kill-emacs #'y-or-n-p) ; confirm if kill emacs
 (electric-pair-mode t) ; auto electric pair((){}[] .ete)
