@@ -8,7 +8,10 @@
 (use-package cnfonts
   :straight t
   :init
-  (cnfonts-mode 1)
+  ;; Its activation message contains CJK text; displaying it before
+  ;; `cnfonts-set-font' sets a CJK font makes Emacs search system fonts (~0.5s).
+  (let ((inhibit-message t))
+    (cnfonts-mode 1))
   :config
   (setq use-default-font-for-symbols nil)
   ;; (setq cnfonts-use-face-font-rescale t)
