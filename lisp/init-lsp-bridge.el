@@ -37,6 +37,9 @@
   (setq lsp-bridge-enable-diagnostics t)
   (setq lsp-bridge-enable-inlay-hint t)
   (setq lsp-bridge-symbols-enable-which-func t)
+  ;; Remote sync puts TRAMP buffers in `read-only-mode' until a remote
+  ;; lsp-bridge server answers; without one they stay read-only forever.
+  (setq lsp-bridge-enable-with-tramp nil)
   )
 
 ;; Some Issue
