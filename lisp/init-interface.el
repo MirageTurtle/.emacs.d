@@ -63,7 +63,7 @@
 (use-package ligature
   :straight t
   :config
-  (ligature-set-ligatures 'prog-mode
+  (ligature-set-ligatures '(prog-mode org-mode)
                           '("-->" "//" "/**" "/*" "*/" "<!--" "-<<" "-<" "-<-" "<--" "<-<"
                             "<<-" "<->" "->" "->>" ">-" ">>-" "-->>" "->>-" "==" "===" "!="
                             "!==" ">=" "<=" "&&" "||" "::" ":::" ":=" "..." ".."
