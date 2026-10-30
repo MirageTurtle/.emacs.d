@@ -33,8 +33,8 @@
 (setq initial-major-mode 'fundamental-mode) ; keep prog-mode hooks (copilot, lsp-bridge, ...) off *scratch*
 (setq make-backup-files nil) ; no backup files
 (global-display-line-numbers-mode -1) ; show column number in window
-(tool-bar-mode -1) ; no tool bar
-(menu-bar-mode -1) ; no menu bar
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ; no tool bar (void in --without-x builds)
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ; no menu bar
 (when (not (display-graphic-p)) (tab-bar-mode -1))
 (when (display-graphic-p) (toggle-scroll-bar -1)) ; no scroll bar in graphic window
 (savehist-mode 1) ; save buffer history
