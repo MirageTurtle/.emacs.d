@@ -113,6 +113,11 @@ A scope may be provided to a commit's type, to provide additional contextual inf
   :straight t
   :hook (magit-mode . magit-delta-mode))
 
+;; Requires the `difft' binary on PATH.
+(use-package difftastic
+  :straight t
+  :after magit)
+
 (provide 'init-magit)
 
 ;;; init-magit.el ends here
